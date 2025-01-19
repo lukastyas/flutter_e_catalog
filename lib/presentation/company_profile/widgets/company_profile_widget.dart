@@ -58,6 +58,7 @@ class _CompanyProfileWidgetState extends State<CompanyProfileWidget> {
 
       // Open the downloaded file
       // OpenFilex.open(filePath);
+      print('url: $url');
       OpenFile.open(url, type: "application/pdf");
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -132,22 +133,18 @@ class _CompanyProfileWidgetState extends State<CompanyProfileWidget> {
                     BlocProvider(
                       create: (context) =>
                           CompanyBloc(CompanyProfileRemoteDatasource()),
-                      child: IconButton(
-                        icon: const Icon(
-                          Icons.download,
-                          color: Colors.white,
-                        ),
-                        onPressed: () async {
-                          widget.profile.files.map(
-                            (e) {
-                              _downloadPdf(e.fileUrl, e.fileName);
-                            },
-                          );
-                          //Logic download
-
-                          print('Download this File');
-                        },
-                      ),
+                      child: _isDownloading
+                          ? CircularProgressIndicator()
+                          : IconButton(
+                              icon: const Icon(
+                                Icons.download,
+                                color: Colors.white,
+                              ),
+                              onPressed: () async {
+                                await _downloadPdf(
+                                    widget.profile.files[0].fileUrl, 'file');
+                              },
+                            ),
                     ),
                     const SizedBox(
                       width: 16.0,
