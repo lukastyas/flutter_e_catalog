@@ -23,6 +23,8 @@ mixin _$CompanyEvent {
     required TResult Function(String fileName) fetchByFileName,
     required TResult Function(String companyName) search,
     required TResult Function(String fileName, String url) download,
+    required TResult Function(List<String> fileNames, List<String> fileUrls)
+        downloadMultiple,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,6 +34,8 @@ mixin _$CompanyEvent {
     TResult? Function(String fileName)? fetchByFileName,
     TResult? Function(String companyName)? search,
     TResult? Function(String fileName, String url)? download,
+    TResult? Function(List<String> fileNames, List<String> fileUrls)?
+        downloadMultiple,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +45,8 @@ mixin _$CompanyEvent {
     TResult Function(String fileName)? fetchByFileName,
     TResult Function(String companyName)? search,
     TResult Function(String fileName, String url)? download,
+    TResult Function(List<String> fileNames, List<String> fileUrls)?
+        downloadMultiple,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -51,6 +57,7 @@ mixin _$CompanyEvent {
     required TResult Function(_FetchByFileName value) fetchByFileName,
     required TResult Function(_Search value) search,
     required TResult Function(_Download value) download,
+    required TResult Function(_DownloadMultiple value) downloadMultiple,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,6 +67,7 @@ mixin _$CompanyEvent {
     TResult? Function(_FetchByFileName value)? fetchByFileName,
     TResult? Function(_Search value)? search,
     TResult? Function(_Download value)? download,
+    TResult? Function(_DownloadMultiple value)? downloadMultiple,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,6 +77,7 @@ mixin _$CompanyEvent {
     TResult Function(_FetchByFileName value)? fetchByFileName,
     TResult Function(_Search value)? search,
     TResult Function(_Download value)? download,
+    TResult Function(_DownloadMultiple value)? downloadMultiple,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -90,6 +99,9 @@ class _$CompanyEventCopyWithImpl<$Res, $Val extends CompanyEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of CompanyEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -106,6 +118,9 @@ class __$$StartedImplCopyWithImpl<$Res>
   __$$StartedImplCopyWithImpl(
       _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CompanyEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -135,6 +150,8 @@ class _$StartedImpl implements _Started {
     required TResult Function(String fileName) fetchByFileName,
     required TResult Function(String companyName) search,
     required TResult Function(String fileName, String url) download,
+    required TResult Function(List<String> fileNames, List<String> fileUrls)
+        downloadMultiple,
   }) {
     return started();
   }
@@ -147,6 +164,8 @@ class _$StartedImpl implements _Started {
     TResult? Function(String fileName)? fetchByFileName,
     TResult? Function(String companyName)? search,
     TResult? Function(String fileName, String url)? download,
+    TResult? Function(List<String> fileNames, List<String> fileUrls)?
+        downloadMultiple,
   }) {
     return started?.call();
   }
@@ -159,6 +178,8 @@ class _$StartedImpl implements _Started {
     TResult Function(String fileName)? fetchByFileName,
     TResult Function(String companyName)? search,
     TResult Function(String fileName, String url)? download,
+    TResult Function(List<String> fileNames, List<String> fileUrls)?
+        downloadMultiple,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -175,6 +196,7 @@ class _$StartedImpl implements _Started {
     required TResult Function(_FetchByFileName value) fetchByFileName,
     required TResult Function(_Search value) search,
     required TResult Function(_Download value) download,
+    required TResult Function(_DownloadMultiple value) downloadMultiple,
   }) {
     return started(this);
   }
@@ -187,6 +209,7 @@ class _$StartedImpl implements _Started {
     TResult? Function(_FetchByFileName value)? fetchByFileName,
     TResult? Function(_Search value)? search,
     TResult? Function(_Download value)? download,
+    TResult? Function(_DownloadMultiple value)? downloadMultiple,
   }) {
     return started?.call(this);
   }
@@ -199,6 +222,7 @@ class _$StartedImpl implements _Started {
     TResult Function(_FetchByFileName value)? fetchByFileName,
     TResult Function(_Search value)? search,
     TResult Function(_Download value)? download,
+    TResult Function(_DownloadMultiple value)? downloadMultiple,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -226,6 +250,9 @@ class __$$FetchImplCopyWithImpl<$Res>
   __$$FetchImplCopyWithImpl(
       _$FetchImpl _value, $Res Function(_$FetchImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CompanyEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -255,6 +282,8 @@ class _$FetchImpl implements _Fetch {
     required TResult Function(String fileName) fetchByFileName,
     required TResult Function(String companyName) search,
     required TResult Function(String fileName, String url) download,
+    required TResult Function(List<String> fileNames, List<String> fileUrls)
+        downloadMultiple,
   }) {
     return fetch();
   }
@@ -267,6 +296,8 @@ class _$FetchImpl implements _Fetch {
     TResult? Function(String fileName)? fetchByFileName,
     TResult? Function(String companyName)? search,
     TResult? Function(String fileName, String url)? download,
+    TResult? Function(List<String> fileNames, List<String> fileUrls)?
+        downloadMultiple,
   }) {
     return fetch?.call();
   }
@@ -279,6 +310,8 @@ class _$FetchImpl implements _Fetch {
     TResult Function(String fileName)? fetchByFileName,
     TResult Function(String companyName)? search,
     TResult Function(String fileName, String url)? download,
+    TResult Function(List<String> fileNames, List<String> fileUrls)?
+        downloadMultiple,
     required TResult orElse(),
   }) {
     if (fetch != null) {
@@ -295,6 +328,7 @@ class _$FetchImpl implements _Fetch {
     required TResult Function(_FetchByFileName value) fetchByFileName,
     required TResult Function(_Search value) search,
     required TResult Function(_Download value) download,
+    required TResult Function(_DownloadMultiple value) downloadMultiple,
   }) {
     return fetch(this);
   }
@@ -307,6 +341,7 @@ class _$FetchImpl implements _Fetch {
     TResult? Function(_FetchByFileName value)? fetchByFileName,
     TResult? Function(_Search value)? search,
     TResult? Function(_Download value)? download,
+    TResult? Function(_DownloadMultiple value)? downloadMultiple,
   }) {
     return fetch?.call(this);
   }
@@ -319,6 +354,7 @@ class _$FetchImpl implements _Fetch {
     TResult Function(_FetchByFileName value)? fetchByFileName,
     TResult Function(_Search value)? search,
     TResult Function(_Download value)? download,
+    TResult Function(_DownloadMultiple value)? downloadMultiple,
     required TResult orElse(),
   }) {
     if (fetch != null) {
@@ -349,6 +385,8 @@ class __$$FetchByFileNameImplCopyWithImpl<$Res>
       _$FetchByFileNameImpl _value, $Res Function(_$FetchByFileNameImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CompanyEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -388,7 +426,9 @@ class _$FetchByFileNameImpl implements _FetchByFileName {
   @override
   int get hashCode => Object.hash(runtimeType, fileName);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CompanyEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FetchByFileNameImplCopyWith<_$FetchByFileNameImpl> get copyWith =>
@@ -403,6 +443,8 @@ class _$FetchByFileNameImpl implements _FetchByFileName {
     required TResult Function(String fileName) fetchByFileName,
     required TResult Function(String companyName) search,
     required TResult Function(String fileName, String url) download,
+    required TResult Function(List<String> fileNames, List<String> fileUrls)
+        downloadMultiple,
   }) {
     return fetchByFileName(fileName);
   }
@@ -415,6 +457,8 @@ class _$FetchByFileNameImpl implements _FetchByFileName {
     TResult? Function(String fileName)? fetchByFileName,
     TResult? Function(String companyName)? search,
     TResult? Function(String fileName, String url)? download,
+    TResult? Function(List<String> fileNames, List<String> fileUrls)?
+        downloadMultiple,
   }) {
     return fetchByFileName?.call(fileName);
   }
@@ -427,6 +471,8 @@ class _$FetchByFileNameImpl implements _FetchByFileName {
     TResult Function(String fileName)? fetchByFileName,
     TResult Function(String companyName)? search,
     TResult Function(String fileName, String url)? download,
+    TResult Function(List<String> fileNames, List<String> fileUrls)?
+        downloadMultiple,
     required TResult orElse(),
   }) {
     if (fetchByFileName != null) {
@@ -443,6 +489,7 @@ class _$FetchByFileNameImpl implements _FetchByFileName {
     required TResult Function(_FetchByFileName value) fetchByFileName,
     required TResult Function(_Search value) search,
     required TResult Function(_Download value) download,
+    required TResult Function(_DownloadMultiple value) downloadMultiple,
   }) {
     return fetchByFileName(this);
   }
@@ -455,6 +502,7 @@ class _$FetchByFileNameImpl implements _FetchByFileName {
     TResult? Function(_FetchByFileName value)? fetchByFileName,
     TResult? Function(_Search value)? search,
     TResult? Function(_Download value)? download,
+    TResult? Function(_DownloadMultiple value)? downloadMultiple,
   }) {
     return fetchByFileName?.call(this);
   }
@@ -467,6 +515,7 @@ class _$FetchByFileNameImpl implements _FetchByFileName {
     TResult Function(_FetchByFileName value)? fetchByFileName,
     TResult Function(_Search value)? search,
     TResult Function(_Download value)? download,
+    TResult Function(_DownloadMultiple value)? downloadMultiple,
     required TResult orElse(),
   }) {
     if (fetchByFileName != null) {
@@ -480,7 +529,10 @@ abstract class _FetchByFileName implements CompanyEvent {
   const factory _FetchByFileName(final String fileName) = _$FetchByFileNameImpl;
 
   String get fileName;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CompanyEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FetchByFileNameImplCopyWith<_$FetchByFileNameImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -502,6 +554,8 @@ class __$$SearchImplCopyWithImpl<$Res>
       _$SearchImpl _value, $Res Function(_$SearchImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CompanyEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -541,7 +595,9 @@ class _$SearchImpl implements _Search {
   @override
   int get hashCode => Object.hash(runtimeType, companyName);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CompanyEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SearchImplCopyWith<_$SearchImpl> get copyWith =>
@@ -555,6 +611,8 @@ class _$SearchImpl implements _Search {
     required TResult Function(String fileName) fetchByFileName,
     required TResult Function(String companyName) search,
     required TResult Function(String fileName, String url) download,
+    required TResult Function(List<String> fileNames, List<String> fileUrls)
+        downloadMultiple,
   }) {
     return search(companyName);
   }
@@ -567,6 +625,8 @@ class _$SearchImpl implements _Search {
     TResult? Function(String fileName)? fetchByFileName,
     TResult? Function(String companyName)? search,
     TResult? Function(String fileName, String url)? download,
+    TResult? Function(List<String> fileNames, List<String> fileUrls)?
+        downloadMultiple,
   }) {
     return search?.call(companyName);
   }
@@ -579,6 +639,8 @@ class _$SearchImpl implements _Search {
     TResult Function(String fileName)? fetchByFileName,
     TResult Function(String companyName)? search,
     TResult Function(String fileName, String url)? download,
+    TResult Function(List<String> fileNames, List<String> fileUrls)?
+        downloadMultiple,
     required TResult orElse(),
   }) {
     if (search != null) {
@@ -595,6 +657,7 @@ class _$SearchImpl implements _Search {
     required TResult Function(_FetchByFileName value) fetchByFileName,
     required TResult Function(_Search value) search,
     required TResult Function(_Download value) download,
+    required TResult Function(_DownloadMultiple value) downloadMultiple,
   }) {
     return search(this);
   }
@@ -607,6 +670,7 @@ class _$SearchImpl implements _Search {
     TResult? Function(_FetchByFileName value)? fetchByFileName,
     TResult? Function(_Search value)? search,
     TResult? Function(_Download value)? download,
+    TResult? Function(_DownloadMultiple value)? downloadMultiple,
   }) {
     return search?.call(this);
   }
@@ -619,6 +683,7 @@ class _$SearchImpl implements _Search {
     TResult Function(_FetchByFileName value)? fetchByFileName,
     TResult Function(_Search value)? search,
     TResult Function(_Download value)? download,
+    TResult Function(_DownloadMultiple value)? downloadMultiple,
     required TResult orElse(),
   }) {
     if (search != null) {
@@ -632,7 +697,10 @@ abstract class _Search implements CompanyEvent {
   const factory _Search(final String companyName) = _$SearchImpl;
 
   String get companyName;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CompanyEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SearchImplCopyWith<_$SearchImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -654,6 +722,8 @@ class __$$DownloadImplCopyWithImpl<$Res>
       _$DownloadImpl _value, $Res Function(_$DownloadImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CompanyEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -701,7 +771,9 @@ class _$DownloadImpl implements _Download {
   @override
   int get hashCode => Object.hash(runtimeType, fileName, url);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CompanyEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DownloadImplCopyWith<_$DownloadImpl> get copyWith =>
@@ -715,6 +787,8 @@ class _$DownloadImpl implements _Download {
     required TResult Function(String fileName) fetchByFileName,
     required TResult Function(String companyName) search,
     required TResult Function(String fileName, String url) download,
+    required TResult Function(List<String> fileNames, List<String> fileUrls)
+        downloadMultiple,
   }) {
     return download(fileName, url);
   }
@@ -727,6 +801,8 @@ class _$DownloadImpl implements _Download {
     TResult? Function(String fileName)? fetchByFileName,
     TResult? Function(String companyName)? search,
     TResult? Function(String fileName, String url)? download,
+    TResult? Function(List<String> fileNames, List<String> fileUrls)?
+        downloadMultiple,
   }) {
     return download?.call(fileName, url);
   }
@@ -739,6 +815,8 @@ class _$DownloadImpl implements _Download {
     TResult Function(String fileName)? fetchByFileName,
     TResult Function(String companyName)? search,
     TResult Function(String fileName, String url)? download,
+    TResult Function(List<String> fileNames, List<String> fileUrls)?
+        downloadMultiple,
     required TResult orElse(),
   }) {
     if (download != null) {
@@ -755,6 +833,7 @@ class _$DownloadImpl implements _Download {
     required TResult Function(_FetchByFileName value) fetchByFileName,
     required TResult Function(_Search value) search,
     required TResult Function(_Download value) download,
+    required TResult Function(_DownloadMultiple value) downloadMultiple,
   }) {
     return download(this);
   }
@@ -767,6 +846,7 @@ class _$DownloadImpl implements _Download {
     TResult? Function(_FetchByFileName value)? fetchByFileName,
     TResult? Function(_Search value)? search,
     TResult? Function(_Download value)? download,
+    TResult? Function(_DownloadMultiple value)? downloadMultiple,
   }) {
     return download?.call(this);
   }
@@ -779,6 +859,7 @@ class _$DownloadImpl implements _Download {
     TResult Function(_FetchByFileName value)? fetchByFileName,
     TResult Function(_Search value)? search,
     TResult Function(_Download value)? download,
+    TResult Function(_DownloadMultiple value)? downloadMultiple,
     required TResult orElse(),
   }) {
     if (download != null) {
@@ -794,8 +875,208 @@ abstract class _Download implements CompanyEvent {
 
   String get fileName;
   String get url;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CompanyEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DownloadImplCopyWith<_$DownloadImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DownloadMultipleImplCopyWith<$Res> {
+  factory _$$DownloadMultipleImplCopyWith(_$DownloadMultipleImpl value,
+          $Res Function(_$DownloadMultipleImpl) then) =
+      __$$DownloadMultipleImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<String> fileNames, List<String> fileUrls});
+}
+
+/// @nodoc
+class __$$DownloadMultipleImplCopyWithImpl<$Res>
+    extends _$CompanyEventCopyWithImpl<$Res, _$DownloadMultipleImpl>
+    implements _$$DownloadMultipleImplCopyWith<$Res> {
+  __$$DownloadMultipleImplCopyWithImpl(_$DownloadMultipleImpl _value,
+      $Res Function(_$DownloadMultipleImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of CompanyEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? fileNames = null,
+    Object? fileUrls = null,
+  }) {
+    return _then(_$DownloadMultipleImpl(
+      null == fileNames
+          ? _value._fileNames
+          : fileNames // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      null == fileUrls
+          ? _value._fileUrls
+          : fileUrls // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DownloadMultipleImpl implements _DownloadMultiple {
+  const _$DownloadMultipleImpl(
+      final List<String> fileNames, final List<String> fileUrls)
+      : _fileNames = fileNames,
+        _fileUrls = fileUrls;
+
+  final List<String> _fileNames;
+  @override
+  List<String> get fileNames {
+    if (_fileNames is EqualUnmodifiableListView) return _fileNames;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_fileNames);
+  }
+
+  final List<String> _fileUrls;
+  @override
+  List<String> get fileUrls {
+    if (_fileUrls is EqualUnmodifiableListView) return _fileUrls;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_fileUrls);
+  }
+
+  @override
+  String toString() {
+    return 'CompanyEvent.downloadMultiple(fileNames: $fileNames, fileUrls: $fileUrls)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DownloadMultipleImpl &&
+            const DeepCollectionEquality()
+                .equals(other._fileNames, _fileNames) &&
+            const DeepCollectionEquality().equals(other._fileUrls, _fileUrls));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_fileNames),
+      const DeepCollectionEquality().hash(_fileUrls));
+
+  /// Create a copy of CompanyEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DownloadMultipleImplCopyWith<_$DownloadMultipleImpl> get copyWith =>
+      __$$DownloadMultipleImplCopyWithImpl<_$DownloadMultipleImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() fetch,
+    required TResult Function(String fileName) fetchByFileName,
+    required TResult Function(String companyName) search,
+    required TResult Function(String fileName, String url) download,
+    required TResult Function(List<String> fileNames, List<String> fileUrls)
+        downloadMultiple,
+  }) {
+    return downloadMultiple(fileNames, fileUrls);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? fetch,
+    TResult? Function(String fileName)? fetchByFileName,
+    TResult? Function(String companyName)? search,
+    TResult? Function(String fileName, String url)? download,
+    TResult? Function(List<String> fileNames, List<String> fileUrls)?
+        downloadMultiple,
+  }) {
+    return downloadMultiple?.call(fileNames, fileUrls);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? fetch,
+    TResult Function(String fileName)? fetchByFileName,
+    TResult Function(String companyName)? search,
+    TResult Function(String fileName, String url)? download,
+    TResult Function(List<String> fileNames, List<String> fileUrls)?
+        downloadMultiple,
+    required TResult orElse(),
+  }) {
+    if (downloadMultiple != null) {
+      return downloadMultiple(fileNames, fileUrls);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_Fetch value) fetch,
+    required TResult Function(_FetchByFileName value) fetchByFileName,
+    required TResult Function(_Search value) search,
+    required TResult Function(_Download value) download,
+    required TResult Function(_DownloadMultiple value) downloadMultiple,
+  }) {
+    return downloadMultiple(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_FetchByFileName value)? fetchByFileName,
+    TResult? Function(_Search value)? search,
+    TResult? Function(_Download value)? download,
+    TResult? Function(_DownloadMultiple value)? downloadMultiple,
+  }) {
+    return downloadMultiple?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Fetch value)? fetch,
+    TResult Function(_FetchByFileName value)? fetchByFileName,
+    TResult Function(_Search value)? search,
+    TResult Function(_Download value)? download,
+    TResult Function(_DownloadMultiple value)? downloadMultiple,
+    required TResult orElse(),
+  }) {
+    if (downloadMultiple != null) {
+      return downloadMultiple(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DownloadMultiple implements CompanyEvent {
+  const factory _DownloadMultiple(
+          final List<String> fileNames, final List<String> fileUrls) =
+      _$DownloadMultipleImpl;
+
+  List<String> get fileNames;
+  List<String> get fileUrls;
+
+  /// Create a copy of CompanyEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DownloadMultipleImplCopyWith<_$DownloadMultipleImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -807,6 +1088,7 @@ mixin _$CompanyState {
     required TResult Function() loading,
     required TResult Function(List<CompanyResponseModel> companies) success,
     required TResult Function(String message) error,
+    required TResult Function() multipleDownloadSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -815,6 +1097,7 @@ mixin _$CompanyState {
     TResult? Function()? loading,
     TResult? Function(List<CompanyResponseModel> companies)? success,
     TResult? Function(String message)? error,
+    TResult? Function()? multipleDownloadSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -823,6 +1106,7 @@ mixin _$CompanyState {
     TResult Function()? loading,
     TResult Function(List<CompanyResponseModel> companies)? success,
     TResult Function(String message)? error,
+    TResult Function()? multipleDownloadSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -832,6 +1116,8 @@ mixin _$CompanyState {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
+    required TResult Function(_MultipleDownloadSuccess value)
+        multipleDownloadSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -840,6 +1126,7 @@ mixin _$CompanyState {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
+    TResult? Function(_MultipleDownloadSuccess value)? multipleDownloadSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -848,6 +1135,7 @@ mixin _$CompanyState {
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
+    TResult Function(_MultipleDownloadSuccess value)? multipleDownloadSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -869,6 +1157,9 @@ class _$CompanyStateCopyWithImpl<$Res, $Val extends CompanyState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of CompanyState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -885,6 +1176,9 @@ class __$$InitialImplCopyWithImpl<$Res>
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CompanyState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -913,6 +1207,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() loading,
     required TResult Function(List<CompanyResponseModel> companies) success,
     required TResult Function(String message) error,
+    required TResult Function() multipleDownloadSuccess,
   }) {
     return initial();
   }
@@ -924,6 +1219,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? loading,
     TResult? Function(List<CompanyResponseModel> companies)? success,
     TResult? Function(String message)? error,
+    TResult? Function()? multipleDownloadSuccess,
   }) {
     return initial?.call();
   }
@@ -935,6 +1231,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? loading,
     TResult Function(List<CompanyResponseModel> companies)? success,
     TResult Function(String message)? error,
+    TResult Function()? multipleDownloadSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -950,6 +1247,8 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
+    required TResult Function(_MultipleDownloadSuccess value)
+        multipleDownloadSuccess,
   }) {
     return initial(this);
   }
@@ -961,6 +1260,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
+    TResult? Function(_MultipleDownloadSuccess value)? multipleDownloadSuccess,
   }) {
     return initial?.call(this);
   }
@@ -972,6 +1272,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
+    TResult Function(_MultipleDownloadSuccess value)? multipleDownloadSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -999,6 +1300,9 @@ class __$$LoadingImplCopyWithImpl<$Res>
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CompanyState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1027,6 +1331,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function() loading,
     required TResult Function(List<CompanyResponseModel> companies) success,
     required TResult Function(String message) error,
+    required TResult Function() multipleDownloadSuccess,
   }) {
     return loading();
   }
@@ -1038,6 +1343,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function()? loading,
     TResult? Function(List<CompanyResponseModel> companies)? success,
     TResult? Function(String message)? error,
+    TResult? Function()? multipleDownloadSuccess,
   }) {
     return loading?.call();
   }
@@ -1049,6 +1355,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function()? loading,
     TResult Function(List<CompanyResponseModel> companies)? success,
     TResult Function(String message)? error,
+    TResult Function()? multipleDownloadSuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1064,6 +1371,8 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
+    required TResult Function(_MultipleDownloadSuccess value)
+        multipleDownloadSuccess,
   }) {
     return loading(this);
   }
@@ -1075,6 +1384,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
+    TResult? Function(_MultipleDownloadSuccess value)? multipleDownloadSuccess,
   }) {
     return loading?.call(this);
   }
@@ -1086,6 +1396,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
+    TResult Function(_MultipleDownloadSuccess value)? multipleDownloadSuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1116,6 +1427,8 @@ class __$$SuccessImplCopyWithImpl<$Res>
       _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CompanyState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1162,7 +1475,9 @@ class _$SuccessImpl implements _Success {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_companies));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CompanyState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
@@ -1175,6 +1490,7 @@ class _$SuccessImpl implements _Success {
     required TResult Function() loading,
     required TResult Function(List<CompanyResponseModel> companies) success,
     required TResult Function(String message) error,
+    required TResult Function() multipleDownloadSuccess,
   }) {
     return success(companies);
   }
@@ -1186,6 +1502,7 @@ class _$SuccessImpl implements _Success {
     TResult? Function()? loading,
     TResult? Function(List<CompanyResponseModel> companies)? success,
     TResult? Function(String message)? error,
+    TResult? Function()? multipleDownloadSuccess,
   }) {
     return success?.call(companies);
   }
@@ -1197,6 +1514,7 @@ class _$SuccessImpl implements _Success {
     TResult Function()? loading,
     TResult Function(List<CompanyResponseModel> companies)? success,
     TResult Function(String message)? error,
+    TResult Function()? multipleDownloadSuccess,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -1212,6 +1530,8 @@ class _$SuccessImpl implements _Success {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
+    required TResult Function(_MultipleDownloadSuccess value)
+        multipleDownloadSuccess,
   }) {
     return success(this);
   }
@@ -1223,6 +1543,7 @@ class _$SuccessImpl implements _Success {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
+    TResult? Function(_MultipleDownloadSuccess value)? multipleDownloadSuccess,
   }) {
     return success?.call(this);
   }
@@ -1234,6 +1555,7 @@ class _$SuccessImpl implements _Success {
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
+    TResult Function(_MultipleDownloadSuccess value)? multipleDownloadSuccess,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -1248,7 +1570,10 @@ abstract class _Success implements CompanyState {
       _$SuccessImpl;
 
   List<CompanyResponseModel> get companies;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CompanyState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1270,6 +1595,8 @@ class __$$ErrorImplCopyWithImpl<$Res>
       _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CompanyState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1308,7 +1635,9 @@ class _$ErrorImpl implements _Error {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CompanyState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
@@ -1321,6 +1650,7 @@ class _$ErrorImpl implements _Error {
     required TResult Function() loading,
     required TResult Function(List<CompanyResponseModel> companies) success,
     required TResult Function(String message) error,
+    required TResult Function() multipleDownloadSuccess,
   }) {
     return error(message);
   }
@@ -1332,6 +1662,7 @@ class _$ErrorImpl implements _Error {
     TResult? Function()? loading,
     TResult? Function(List<CompanyResponseModel> companies)? success,
     TResult? Function(String message)? error,
+    TResult? Function()? multipleDownloadSuccess,
   }) {
     return error?.call(message);
   }
@@ -1343,6 +1674,7 @@ class _$ErrorImpl implements _Error {
     TResult Function()? loading,
     TResult Function(List<CompanyResponseModel> companies)? success,
     TResult Function(String message)? error,
+    TResult Function()? multipleDownloadSuccess,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1358,6 +1690,8 @@ class _$ErrorImpl implements _Error {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
+    required TResult Function(_MultipleDownloadSuccess value)
+        multipleDownloadSuccess,
   }) {
     return error(this);
   }
@@ -1369,6 +1703,7 @@ class _$ErrorImpl implements _Error {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
+    TResult? Function(_MultipleDownloadSuccess value)? multipleDownloadSuccess,
   }) {
     return error?.call(this);
   }
@@ -1380,6 +1715,7 @@ class _$ErrorImpl implements _Error {
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
+    TResult Function(_MultipleDownloadSuccess value)? multipleDownloadSuccess,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1393,7 +1729,137 @@ abstract class _Error implements CompanyState {
   const factory _Error(final String message) = _$ErrorImpl;
 
   String get message;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CompanyState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$MultipleDownloadSuccessImplCopyWith<$Res> {
+  factory _$$MultipleDownloadSuccessImplCopyWith(
+          _$MultipleDownloadSuccessImpl value,
+          $Res Function(_$MultipleDownloadSuccessImpl) then) =
+      __$$MultipleDownloadSuccessImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$MultipleDownloadSuccessImplCopyWithImpl<$Res>
+    extends _$CompanyStateCopyWithImpl<$Res, _$MultipleDownloadSuccessImpl>
+    implements _$$MultipleDownloadSuccessImplCopyWith<$Res> {
+  __$$MultipleDownloadSuccessImplCopyWithImpl(
+      _$MultipleDownloadSuccessImpl _value,
+      $Res Function(_$MultipleDownloadSuccessImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of CompanyState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$MultipleDownloadSuccessImpl implements _MultipleDownloadSuccess {
+  const _$MultipleDownloadSuccessImpl();
+
+  @override
+  String toString() {
+    return 'CompanyState.multipleDownloadSuccess()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MultipleDownloadSuccessImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<CompanyResponseModel> companies) success,
+    required TResult Function(String message) error,
+    required TResult Function() multipleDownloadSuccess,
+  }) {
+    return multipleDownloadSuccess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<CompanyResponseModel> companies)? success,
+    TResult? Function(String message)? error,
+    TResult? Function()? multipleDownloadSuccess,
+  }) {
+    return multipleDownloadSuccess?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<CompanyResponseModel> companies)? success,
+    TResult Function(String message)? error,
+    TResult Function()? multipleDownloadSuccess,
+    required TResult orElse(),
+  }) {
+    if (multipleDownloadSuccess != null) {
+      return multipleDownloadSuccess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Success value) success,
+    required TResult Function(_Error value) error,
+    required TResult Function(_MultipleDownloadSuccess value)
+        multipleDownloadSuccess,
+  }) {
+    return multipleDownloadSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_MultipleDownloadSuccess value)? multipleDownloadSuccess,
+  }) {
+    return multipleDownloadSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Success value)? success,
+    TResult Function(_Error value)? error,
+    TResult Function(_MultipleDownloadSuccess value)? multipleDownloadSuccess,
+    required TResult orElse(),
+  }) {
+    if (multipleDownloadSuccess != null) {
+      return multipleDownloadSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _MultipleDownloadSuccess implements CompanyState {
+  const factory _MultipleDownloadSuccess() = _$MultipleDownloadSuccessImpl;
 }

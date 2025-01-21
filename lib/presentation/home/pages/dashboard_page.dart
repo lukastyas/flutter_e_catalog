@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter_e_catalog/presentation/company_profile/pages/company_profile.dart';
-// import 'package:flutter_bloc/flutter_bloc.dart';
-// import 'package:flutter_e_catalog/core/components/build_context_ext.dart';
-// import 'package:flutter_e_catalog/data/datasource/auth_local_datasource.dart';
-// import 'package:flutter_e_catalog/data/datasource/auth_remote_datasource.dart';
-// import 'package:flutter_e_catalog/presentation/auth/bloc/logout/logout_bloc.dart';
-// import 'package:flutter_e_catalog/presentation/auth/pages/login_page.dart';
 import 'package:flutter_e_catalog/presentation/home/pages/home_page.dart';
+import 'package:flutter_e_catalog/presentation/sheet/pages/sheet_page.dart';
 
 import '../../../core/assets/assets.gen.dart';
 import '../../../core/constants/colors.dart';
+import '../../catalog/pages/catalog_page.dart';
 import '../../company_profile/pages/company_profile.dart';
 import '../widgets/nav_menu.dart';
 
@@ -22,7 +17,6 @@ class DashboardPage extends StatefulWidget {
 
 class _DashboardPageState extends State<DashboardPage> {
   int _selectedIndex = 0;
-  
 
   final List<Widget> _pages = [
     const HomePage(),
@@ -30,12 +24,14 @@ class _DashboardPageState extends State<DashboardPage> {
     // const Center(
     //   child: Text('Company'),
     // ),
-    const Center(
-      child: Text('Catalog'),
-    ),
-    const Center(
-      child: Text('Sheet'),
-    ),
+    const CatalogPage(),
+    // const Center(
+    //   child: Text('Catalog'),
+    // ),
+    const SheetPage(),
+    // const Center(
+    //   child: Text('Sheet'),
+    // ),
     // const LogoutWidget(),
   ];
 
@@ -47,7 +43,10 @@ class _DashboardPageState extends State<DashboardPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _pages[_selectedIndex],
+      body: IndexedStack(
+        index: _selectedIndex,
+        children: _pages, // All pages will be kept in memory
+      ),
       bottomNavigationBar: Container(
         padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 16.0),
         decoration: const BoxDecoration(

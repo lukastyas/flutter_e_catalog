@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_e_catalog/core/components/build_context_ext.dart';
+import 'package:flutter_e_catalog/core/constants/variables.dart';
+import 'package:http/http.dart' as http;
+import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'dart:convert';
 
 import '../../../core/assets/assets.gen.dart';
 import '../../../core/components/buttons.dart';
@@ -30,16 +34,46 @@ class _LoginPageState extends State<LoginPage> {
     super.dispose();
   }
 
-  void _launchWhatsApp(String namaLengkap) async {
-    final Uri whatsappUrl = Uri.parse(
-        'https://wa.me/6281267289591?text=Hello%20HC%20Arita%2C%20$namaLengkap%20Saya%20Butuh%20bantuan%20Login%20ke%20E-Catalog%2C%20saya%20lupa%20kode%20absen');
-    if (await canLaunchUrl(whatsappUrl)) {
-      await launchUrl(whatsappUrl);
-    } else {
+  Future<void> _launchWhatsApp() async {
+    try {
+      final response = await http.get(
+        Uri.parse('${Variables.baseUrl}/api/v1/generate-whatshapp-url'),
+      );
+
+      if (response.statusCode == 200) {
+        final data = json.decode(response.body);
+        final String whatsappUrl = data['url'];
+
+        if (await canLaunchUrl(Uri.parse(whatsappUrl))) {
+          await launchUrl(Uri.parse(whatsappUrl));
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text(
+                'Tidak dapat membuka WhatsApp',
+                style: TextStyle(color: Colors.black),
+              ),
+              backgroundColor: AppColors.lightRed,
+            ),
+          );
+        }
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text(
+              'Gagal mengambil URL WhatsApp',
+              style: TextStyle(color: Colors.black),
+            ),
+            backgroundColor: AppColors.lightRed,
+          ),
+        );
+      }
+    } catch (e) {
+      print('Error: $e');
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text(
-            'Could not launch WhatsApp',
+            'Terjadi kesalahan saat mengambil URL WhatsApp',
             style: TextStyle(color: Colors.black),
           ),
           backgroundColor: AppColors.lightRed,
@@ -95,16 +129,14 @@ class _LoginPageState extends State<LoginPage> {
           const SizedBox(height: 12.0),
           CustomTextField(
             controller: tglLahirController,
-            label: 'Tanggal Lahir (YYYY-MM-DD)',
+            label: 'Tanggal Lahir (DDMMYYYY)',
             obscureText: false,
           ),
           const SizedBox(height: 16.0),
           GestureDetector(
-            onTap: () {
-              _launchWhatsApp(''); // Placeholder, akan diupdate setelah login
-            },
+            onTap: _launchWhatsApp,
             child: const Text(
-              'Forgot Password?',
+              'Lupa Kata Sandi?',
               style: TextStyle(
                 fontWeight: FontWeight.w500,
                 color: AppColors.primary,
@@ -117,17 +149,11 @@ class _LoginPageState extends State<LoginPage> {
               state.maybeWhen(
                 orElse: () {},
                 success: (data) {
-                  // Simpan data ke local storage
                   AuthLocalDatasource().saveAuthData(data);
-                  // String namaLengkap = data.data.karyawan.namaLengkap;
-                  // _launchWhatsApp(
-                  //     namaLengkap); // Luncurkan WhatsApp dengan nama lengkap
-
-                  // Snackbar
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(
                       content: Text(
-                        'Login Success',
+                        'Login Berhasil',
                         style: TextStyle(color: Colors.black),
                       ),
                       backgroundColor: AppColors.lightGreen,
@@ -179,10 +205,19 @@ class _LoginPageState extends State<LoginPage> {
                       return;
                     }
 
+                    // Trim input untuk menghapus spasi di awal/akhir
+                    String inputDate = tglLahirController.text.trim();
+                    print('Input Tanggal: $inputDate'); // Log untuk debugging
+
                     // Konversi string tgl lahir ke DateTime
                     DateTime? tglLahir;
                     try {
-                      tglLahir = DateTime.parse(tglLahirController.text);
+                      // Parse tanggal dari format DDMMYYYY
+                      tglLahir = DateTime(
+                        int.parse(inputDate.substring(4, 8)), // YYYY
+                        int.parse(inputDate.substring(2, 4)), // MM
+                        int.parse(inputDate.substring(0, 2)), // DD
+                      );
                     } catch (e) {
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
@@ -193,16 +228,21 @@ class _LoginPageState extends State<LoginPage> {
                       return;
                     }
 
+                    // Format tanggal ke YYYY-MM-DD untuk server
+                    String formattedDate =
+                        DateFormat('yyyy-MM-dd').format(tglLahir);
+
                     // Buat model permintaan login
                     final requestModel = LoginRequestModel(
                       absenCode: absenCodeController.text,
-                      tglLahir: tglLahir,
+                      tglLahir:
+                          formattedDate, // Kirim tanggal yang sudah diformat
                     );
                     context
                         .read<LoginBloc>()
                         .add(LoginEvent.login(requestModel));
                   },
-                  label: 'LOG IN',
+                  label: 'MASUK',
                 ),
                 loading: () => const Center(
                   child: CircularProgressIndicator(),
@@ -213,15 +253,15 @@ class _LoginPageState extends State<LoginPage> {
           const SizedBox(height: 24.0),
           GestureDetector(
             onTap: () {
-              // Aksi ketika "Sign up" ditekan
+              // Aksi ketika "Daftar" ditekan
               // context.pushReplacement(const RegisterPage());
             },
             child: const Text.rich(
               TextSpan(
-                text: 'Don\'t have an account? ',
+                text: 'Belum punya akun? ',
                 children: [
                   TextSpan(
-                    text: 'Sign up',
+                    text: 'Daftar',
                     style: TextStyle(color: AppColors.primary),
                   ),
                 ],

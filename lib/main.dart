@@ -3,13 +3,19 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 // import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:flutter_e_catalog/data/datasource/auth_local_datasource.dart';
 import 'package:flutter_e_catalog/data/datasource/auth_remote_datasource.dart';
+import 'package:flutter_e_catalog/data/datasource/catalog_remote_datasource.dart';
+import 'package:flutter_e_catalog/data/datasource/company_profile_remote_datasource.dart';
 import 'package:flutter_e_catalog/data/datasource/onboarding_local_datasource.dart';
+import 'package:flutter_e_catalog/data/datasource/sheet_remote_datasource.dart';
 import 'package:flutter_e_catalog/data/models/responses/auth_response_model.dart';
 import 'package:flutter_e_catalog/presentation/auth/bloc/login/login_bloc.dart';
 import 'package:flutter_e_catalog/presentation/auth/bloc/logout/logout_bloc.dart';
 import 'package:flutter_e_catalog/presentation/auth/pages/login_page.dart';
+import 'package:flutter_e_catalog/presentation/catalog/bloc/catalog/catalog_bloc.dart';
+import 'package:flutter_e_catalog/presentation/company_profile/bloc/company/company_bloc.dart';
 import 'package:flutter_e_catalog/presentation/home/pages/dashboard_page.dart';
 import 'package:flutter_e_catalog/presentation/onboarding/pages/onboarding_page.dart';
+import 'package:flutter_e_catalog/presentation/sheet/bloc/sheet/sheet_bloc.dart';
 // import 'package:flutter_e_catalog/presentation/onboarding/pages/started.dart';
 
 void main() async {
@@ -27,10 +33,20 @@ class MyApp extends StatelessWidget {
           create: (context) => LogoutBloc(AuthRemoteDatasource()),
         ),
         BlocProvider(
+          create: (context) => CompanyBloc(CompanyProfileRemoteDatasource()),
+        ),
+        BlocProvider(
+          create: (context) => CatalogBloc(CatalogRemoteDatasource()),
+        ),
+        BlocProvider(
+          create: (context) => SheetBloc(SheetRemoteDatasource()),
+        ),
+        BlocProvider(
           create: (context) => LoginBloc(),
         ),
       ],
       child: MaterialApp(
+          debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
           theme: ThemeData(
             // primarySwatch: Colors.blue,

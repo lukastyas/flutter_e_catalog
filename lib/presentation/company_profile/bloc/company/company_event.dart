@@ -8,4 +8,5 @@ class CompanyEvent with _$CompanyEvent {
   //search
   const factory CompanyEvent.search(String companyName) = _Search;
   const factory CompanyEvent.download(String fileName, String url) = _Download;
+  const factory CompanyEvent.downloadMultiple(List<String> fileNames, List<String> fileUrls) = _DownloadMultiple;
 }
