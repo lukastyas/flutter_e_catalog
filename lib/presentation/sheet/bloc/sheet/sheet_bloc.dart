@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_e_catalog/data/models/responses/sheet_response_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -50,6 +51,18 @@ class SheetBloc extends Bloc<SheetEvent, SheetState> {
       response.fold((l) => emit(SheetState.error(l)), (r) {
         emit(SheetState.success(r));
       });
+    });
+    //Handle downloading multiple files
+    on<_DownloadMultiple>((event, emit) async {
+      emit(const SheetState.loading());
+      for (int i = 0; i < event.fileNames.length; i++) {
+        final response = await _sheetRemoteDatasource.downloadFile(
+            event.fileNames[i], event.fileUrls[i]);
+        response.fold((l) => emit(SheetState.error(l)), (r) {
+          // Optionally handle each successful download
+        });
+      }
+      emit(const SheetState.multipleDownloadSuccess());
     });
   }
 }

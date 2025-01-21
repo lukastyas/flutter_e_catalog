@@ -23,6 +23,8 @@ mixin _$SheetEvent {
     required TResult Function(String sheet) fetchBySheet,
     required TResult Function(String sheetName) search,
     required TResult Function(String fileName, String url) download,
+    required TResult Function(List<String> fileNames, List<String> fileUrls)
+        downloadMultiple,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,6 +34,8 @@ mixin _$SheetEvent {
     TResult? Function(String sheet)? fetchBySheet,
     TResult? Function(String sheetName)? search,
     TResult? Function(String fileName, String url)? download,
+    TResult? Function(List<String> fileNames, List<String> fileUrls)?
+        downloadMultiple,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +45,8 @@ mixin _$SheetEvent {
     TResult Function(String sheet)? fetchBySheet,
     TResult Function(String sheetName)? search,
     TResult Function(String fileName, String url)? download,
+    TResult Function(List<String> fileNames, List<String> fileUrls)?
+        downloadMultiple,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -51,6 +57,7 @@ mixin _$SheetEvent {
     required TResult Function(_FetchBySheet value) fetchBySheet,
     required TResult Function(_Search value) search,
     required TResult Function(_Download value) download,
+    required TResult Function(_DownloadMultiple value) downloadMultiple,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,6 +67,7 @@ mixin _$SheetEvent {
     TResult? Function(_FetchBySheet value)? fetchBySheet,
     TResult? Function(_Search value)? search,
     TResult? Function(_Download value)? download,
+    TResult? Function(_DownloadMultiple value)? downloadMultiple,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,6 +77,7 @@ mixin _$SheetEvent {
     TResult Function(_FetchBySheet value)? fetchBySheet,
     TResult Function(_Search value)? search,
     TResult Function(_Download value)? download,
+    TResult Function(_DownloadMultiple value)? downloadMultiple,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -116,12 +125,18 @@ class __$$StartedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$StartedImpl implements _Started {
+class _$StartedImpl with DiagnosticableTreeMixin implements _Started {
   const _$StartedImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SheetEvent.started()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'SheetEvent.started'));
   }
 
   @override
@@ -141,6 +156,8 @@ class _$StartedImpl implements _Started {
     required TResult Function(String sheet) fetchBySheet,
     required TResult Function(String sheetName) search,
     required TResult Function(String fileName, String url) download,
+    required TResult Function(List<String> fileNames, List<String> fileUrls)
+        downloadMultiple,
   }) {
     return started();
   }
@@ -153,6 +170,8 @@ class _$StartedImpl implements _Started {
     TResult? Function(String sheet)? fetchBySheet,
     TResult? Function(String sheetName)? search,
     TResult? Function(String fileName, String url)? download,
+    TResult? Function(List<String> fileNames, List<String> fileUrls)?
+        downloadMultiple,
   }) {
     return started?.call();
   }
@@ -165,6 +184,8 @@ class _$StartedImpl implements _Started {
     TResult Function(String sheet)? fetchBySheet,
     TResult Function(String sheetName)? search,
     TResult Function(String fileName, String url)? download,
+    TResult Function(List<String> fileNames, List<String> fileUrls)?
+        downloadMultiple,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -181,6 +202,7 @@ class _$StartedImpl implements _Started {
     required TResult Function(_FetchBySheet value) fetchBySheet,
     required TResult Function(_Search value) search,
     required TResult Function(_Download value) download,
+    required TResult Function(_DownloadMultiple value) downloadMultiple,
   }) {
     return started(this);
   }
@@ -193,6 +215,7 @@ class _$StartedImpl implements _Started {
     TResult? Function(_FetchBySheet value)? fetchBySheet,
     TResult? Function(_Search value)? search,
     TResult? Function(_Download value)? download,
+    TResult? Function(_DownloadMultiple value)? downloadMultiple,
   }) {
     return started?.call(this);
   }
@@ -205,6 +228,7 @@ class _$StartedImpl implements _Started {
     TResult Function(_FetchBySheet value)? fetchBySheet,
     TResult Function(_Search value)? search,
     TResult Function(_Download value)? download,
+    TResult Function(_DownloadMultiple value)? downloadMultiple,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -239,12 +263,18 @@ class __$$FetchImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchImpl implements _Fetch {
+class _$FetchImpl with DiagnosticableTreeMixin implements _Fetch {
   const _$FetchImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SheetEvent.fetch()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'SheetEvent.fetch'));
   }
 
   @override
@@ -264,6 +294,8 @@ class _$FetchImpl implements _Fetch {
     required TResult Function(String sheet) fetchBySheet,
     required TResult Function(String sheetName) search,
     required TResult Function(String fileName, String url) download,
+    required TResult Function(List<String> fileNames, List<String> fileUrls)
+        downloadMultiple,
   }) {
     return fetch();
   }
@@ -276,6 +308,8 @@ class _$FetchImpl implements _Fetch {
     TResult? Function(String sheet)? fetchBySheet,
     TResult? Function(String sheetName)? search,
     TResult? Function(String fileName, String url)? download,
+    TResult? Function(List<String> fileNames, List<String> fileUrls)?
+        downloadMultiple,
   }) {
     return fetch?.call();
   }
@@ -288,6 +322,8 @@ class _$FetchImpl implements _Fetch {
     TResult Function(String sheet)? fetchBySheet,
     TResult Function(String sheetName)? search,
     TResult Function(String fileName, String url)? download,
+    TResult Function(List<String> fileNames, List<String> fileUrls)?
+        downloadMultiple,
     required TResult orElse(),
   }) {
     if (fetch != null) {
@@ -304,6 +340,7 @@ class _$FetchImpl implements _Fetch {
     required TResult Function(_FetchBySheet value) fetchBySheet,
     required TResult Function(_Search value) search,
     required TResult Function(_Download value) download,
+    required TResult Function(_DownloadMultiple value) downloadMultiple,
   }) {
     return fetch(this);
   }
@@ -316,6 +353,7 @@ class _$FetchImpl implements _Fetch {
     TResult? Function(_FetchBySheet value)? fetchBySheet,
     TResult? Function(_Search value)? search,
     TResult? Function(_Download value)? download,
+    TResult? Function(_DownloadMultiple value)? downloadMultiple,
   }) {
     return fetch?.call(this);
   }
@@ -328,6 +366,7 @@ class _$FetchImpl implements _Fetch {
     TResult Function(_FetchBySheet value)? fetchBySheet,
     TResult Function(_Search value)? search,
     TResult Function(_Download value)? download,
+    TResult Function(_DownloadMultiple value)? downloadMultiple,
     required TResult orElse(),
   }) {
     if (fetch != null) {
@@ -376,15 +415,23 @@ class __$$FetchBySheetImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchBySheetImpl implements _FetchBySheet {
+class _$FetchBySheetImpl with DiagnosticableTreeMixin implements _FetchBySheet {
   const _$FetchBySheetImpl(this.sheet);
 
   @override
   final String sheet;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SheetEvent.fetchBySheet(sheet: $sheet)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SheetEvent.fetchBySheet'))
+      ..add(DiagnosticsProperty('sheet', sheet));
   }
 
   @override
@@ -414,6 +461,8 @@ class _$FetchBySheetImpl implements _FetchBySheet {
     required TResult Function(String sheet) fetchBySheet,
     required TResult Function(String sheetName) search,
     required TResult Function(String fileName, String url) download,
+    required TResult Function(List<String> fileNames, List<String> fileUrls)
+        downloadMultiple,
   }) {
     return fetchBySheet(sheet);
   }
@@ -426,6 +475,8 @@ class _$FetchBySheetImpl implements _FetchBySheet {
     TResult? Function(String sheet)? fetchBySheet,
     TResult? Function(String sheetName)? search,
     TResult? Function(String fileName, String url)? download,
+    TResult? Function(List<String> fileNames, List<String> fileUrls)?
+        downloadMultiple,
   }) {
     return fetchBySheet?.call(sheet);
   }
@@ -438,6 +489,8 @@ class _$FetchBySheetImpl implements _FetchBySheet {
     TResult Function(String sheet)? fetchBySheet,
     TResult Function(String sheetName)? search,
     TResult Function(String fileName, String url)? download,
+    TResult Function(List<String> fileNames, List<String> fileUrls)?
+        downloadMultiple,
     required TResult orElse(),
   }) {
     if (fetchBySheet != null) {
@@ -454,6 +507,7 @@ class _$FetchBySheetImpl implements _FetchBySheet {
     required TResult Function(_FetchBySheet value) fetchBySheet,
     required TResult Function(_Search value) search,
     required TResult Function(_Download value) download,
+    required TResult Function(_DownloadMultiple value) downloadMultiple,
   }) {
     return fetchBySheet(this);
   }
@@ -466,6 +520,7 @@ class _$FetchBySheetImpl implements _FetchBySheet {
     TResult? Function(_FetchBySheet value)? fetchBySheet,
     TResult? Function(_Search value)? search,
     TResult? Function(_Download value)? download,
+    TResult? Function(_DownloadMultiple value)? downloadMultiple,
   }) {
     return fetchBySheet?.call(this);
   }
@@ -478,6 +533,7 @@ class _$FetchBySheetImpl implements _FetchBySheet {
     TResult Function(_FetchBySheet value)? fetchBySheet,
     TResult Function(_Search value)? search,
     TResult Function(_Download value)? download,
+    TResult Function(_DownloadMultiple value)? downloadMultiple,
     required TResult orElse(),
   }) {
     if (fetchBySheet != null) {
@@ -534,15 +590,23 @@ class __$$SearchImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SearchImpl implements _Search {
+class _$SearchImpl with DiagnosticableTreeMixin implements _Search {
   const _$SearchImpl(this.sheetName);
 
   @override
   final String sheetName;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SheetEvent.search(sheetName: $sheetName)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SheetEvent.search'))
+      ..add(DiagnosticsProperty('sheetName', sheetName));
   }
 
   @override
@@ -573,6 +637,8 @@ class _$SearchImpl implements _Search {
     required TResult Function(String sheet) fetchBySheet,
     required TResult Function(String sheetName) search,
     required TResult Function(String fileName, String url) download,
+    required TResult Function(List<String> fileNames, List<String> fileUrls)
+        downloadMultiple,
   }) {
     return search(sheetName);
   }
@@ -585,6 +651,8 @@ class _$SearchImpl implements _Search {
     TResult? Function(String sheet)? fetchBySheet,
     TResult? Function(String sheetName)? search,
     TResult? Function(String fileName, String url)? download,
+    TResult? Function(List<String> fileNames, List<String> fileUrls)?
+        downloadMultiple,
   }) {
     return search?.call(sheetName);
   }
@@ -597,6 +665,8 @@ class _$SearchImpl implements _Search {
     TResult Function(String sheet)? fetchBySheet,
     TResult Function(String sheetName)? search,
     TResult Function(String fileName, String url)? download,
+    TResult Function(List<String> fileNames, List<String> fileUrls)?
+        downloadMultiple,
     required TResult orElse(),
   }) {
     if (search != null) {
@@ -613,6 +683,7 @@ class _$SearchImpl implements _Search {
     required TResult Function(_FetchBySheet value) fetchBySheet,
     required TResult Function(_Search value) search,
     required TResult Function(_Download value) download,
+    required TResult Function(_DownloadMultiple value) downloadMultiple,
   }) {
     return search(this);
   }
@@ -625,6 +696,7 @@ class _$SearchImpl implements _Search {
     TResult? Function(_FetchBySheet value)? fetchBySheet,
     TResult? Function(_Search value)? search,
     TResult? Function(_Download value)? download,
+    TResult? Function(_DownloadMultiple value)? downloadMultiple,
   }) {
     return search?.call(this);
   }
@@ -637,6 +709,7 @@ class _$SearchImpl implements _Search {
     TResult Function(_FetchBySheet value)? fetchBySheet,
     TResult Function(_Search value)? search,
     TResult Function(_Download value)? download,
+    TResult Function(_DownloadMultiple value)? downloadMultiple,
     required TResult orElse(),
   }) {
     if (search != null) {
@@ -698,7 +771,7 @@ class __$$DownloadImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DownloadImpl implements _Download {
+class _$DownloadImpl with DiagnosticableTreeMixin implements _Download {
   const _$DownloadImpl(this.fileName, this.url);
 
   @override
@@ -707,8 +780,17 @@ class _$DownloadImpl implements _Download {
   final String url;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SheetEvent.download(fileName: $fileName, url: $url)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SheetEvent.download'))
+      ..add(DiagnosticsProperty('fileName', fileName))
+      ..add(DiagnosticsProperty('url', url));
   }
 
   @override
@@ -740,6 +822,8 @@ class _$DownloadImpl implements _Download {
     required TResult Function(String sheet) fetchBySheet,
     required TResult Function(String sheetName) search,
     required TResult Function(String fileName, String url) download,
+    required TResult Function(List<String> fileNames, List<String> fileUrls)
+        downloadMultiple,
   }) {
     return download(fileName, url);
   }
@@ -752,6 +836,8 @@ class _$DownloadImpl implements _Download {
     TResult? Function(String sheet)? fetchBySheet,
     TResult? Function(String sheetName)? search,
     TResult? Function(String fileName, String url)? download,
+    TResult? Function(List<String> fileNames, List<String> fileUrls)?
+        downloadMultiple,
   }) {
     return download?.call(fileName, url);
   }
@@ -764,6 +850,8 @@ class _$DownloadImpl implements _Download {
     TResult Function(String sheet)? fetchBySheet,
     TResult Function(String sheetName)? search,
     TResult Function(String fileName, String url)? download,
+    TResult Function(List<String> fileNames, List<String> fileUrls)?
+        downloadMultiple,
     required TResult orElse(),
   }) {
     if (download != null) {
@@ -780,6 +868,7 @@ class _$DownloadImpl implements _Download {
     required TResult Function(_FetchBySheet value) fetchBySheet,
     required TResult Function(_Search value) search,
     required TResult Function(_Download value) download,
+    required TResult Function(_DownloadMultiple value) downloadMultiple,
   }) {
     return download(this);
   }
@@ -792,6 +881,7 @@ class _$DownloadImpl implements _Download {
     TResult? Function(_FetchBySheet value)? fetchBySheet,
     TResult? Function(_Search value)? search,
     TResult? Function(_Download value)? download,
+    TResult? Function(_DownloadMultiple value)? downloadMultiple,
   }) {
     return download?.call(this);
   }
@@ -804,6 +894,7 @@ class _$DownloadImpl implements _Download {
     TResult Function(_FetchBySheet value)? fetchBySheet,
     TResult Function(_Search value)? search,
     TResult Function(_Download value)? download,
+    TResult Function(_DownloadMultiple value)? downloadMultiple,
     required TResult orElse(),
   }) {
     if (download != null) {
@@ -828,6 +919,214 @@ abstract class _Download implements SheetEvent {
 }
 
 /// @nodoc
+abstract class _$$DownloadMultipleImplCopyWith<$Res> {
+  factory _$$DownloadMultipleImplCopyWith(_$DownloadMultipleImpl value,
+          $Res Function(_$DownloadMultipleImpl) then) =
+      __$$DownloadMultipleImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<String> fileNames, List<String> fileUrls});
+}
+
+/// @nodoc
+class __$$DownloadMultipleImplCopyWithImpl<$Res>
+    extends _$SheetEventCopyWithImpl<$Res, _$DownloadMultipleImpl>
+    implements _$$DownloadMultipleImplCopyWith<$Res> {
+  __$$DownloadMultipleImplCopyWithImpl(_$DownloadMultipleImpl _value,
+      $Res Function(_$DownloadMultipleImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of SheetEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? fileNames = null,
+    Object? fileUrls = null,
+  }) {
+    return _then(_$DownloadMultipleImpl(
+      null == fileNames
+          ? _value._fileNames
+          : fileNames // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      null == fileUrls
+          ? _value._fileUrls
+          : fileUrls // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DownloadMultipleImpl
+    with DiagnosticableTreeMixin
+    implements _DownloadMultiple {
+  const _$DownloadMultipleImpl(
+      final List<String> fileNames, final List<String> fileUrls)
+      : _fileNames = fileNames,
+        _fileUrls = fileUrls;
+
+  final List<String> _fileNames;
+  @override
+  List<String> get fileNames {
+    if (_fileNames is EqualUnmodifiableListView) return _fileNames;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_fileNames);
+  }
+
+  final List<String> _fileUrls;
+  @override
+  List<String> get fileUrls {
+    if (_fileUrls is EqualUnmodifiableListView) return _fileUrls;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_fileUrls);
+  }
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'SheetEvent.downloadMultiple(fileNames: $fileNames, fileUrls: $fileUrls)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SheetEvent.downloadMultiple'))
+      ..add(DiagnosticsProperty('fileNames', fileNames))
+      ..add(DiagnosticsProperty('fileUrls', fileUrls));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DownloadMultipleImpl &&
+            const DeepCollectionEquality()
+                .equals(other._fileNames, _fileNames) &&
+            const DeepCollectionEquality().equals(other._fileUrls, _fileUrls));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_fileNames),
+      const DeepCollectionEquality().hash(_fileUrls));
+
+  /// Create a copy of SheetEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DownloadMultipleImplCopyWith<_$DownloadMultipleImpl> get copyWith =>
+      __$$DownloadMultipleImplCopyWithImpl<_$DownloadMultipleImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() fetch,
+    required TResult Function(String sheet) fetchBySheet,
+    required TResult Function(String sheetName) search,
+    required TResult Function(String fileName, String url) download,
+    required TResult Function(List<String> fileNames, List<String> fileUrls)
+        downloadMultiple,
+  }) {
+    return downloadMultiple(fileNames, fileUrls);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? fetch,
+    TResult? Function(String sheet)? fetchBySheet,
+    TResult? Function(String sheetName)? search,
+    TResult? Function(String fileName, String url)? download,
+    TResult? Function(List<String> fileNames, List<String> fileUrls)?
+        downloadMultiple,
+  }) {
+    return downloadMultiple?.call(fileNames, fileUrls);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? fetch,
+    TResult Function(String sheet)? fetchBySheet,
+    TResult Function(String sheetName)? search,
+    TResult Function(String fileName, String url)? download,
+    TResult Function(List<String> fileNames, List<String> fileUrls)?
+        downloadMultiple,
+    required TResult orElse(),
+  }) {
+    if (downloadMultiple != null) {
+      return downloadMultiple(fileNames, fileUrls);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_Fetch value) fetch,
+    required TResult Function(_FetchBySheet value) fetchBySheet,
+    required TResult Function(_Search value) search,
+    required TResult Function(_Download value) download,
+    required TResult Function(_DownloadMultiple value) downloadMultiple,
+  }) {
+    return downloadMultiple(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_FetchBySheet value)? fetchBySheet,
+    TResult? Function(_Search value)? search,
+    TResult? Function(_Download value)? download,
+    TResult? Function(_DownloadMultiple value)? downloadMultiple,
+  }) {
+    return downloadMultiple?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Fetch value)? fetch,
+    TResult Function(_FetchBySheet value)? fetchBySheet,
+    TResult Function(_Search value)? search,
+    TResult Function(_Download value)? download,
+    TResult Function(_DownloadMultiple value)? downloadMultiple,
+    required TResult orElse(),
+  }) {
+    if (downloadMultiple != null) {
+      return downloadMultiple(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DownloadMultiple implements SheetEvent {
+  const factory _DownloadMultiple(
+          final List<String> fileNames, final List<String> fileUrls) =
+      _$DownloadMultipleImpl;
+
+  List<String> get fileNames;
+  List<String> get fileUrls;
+
+  /// Create a copy of SheetEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DownloadMultipleImplCopyWith<_$DownloadMultipleImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$SheetState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -835,6 +1134,7 @@ mixin _$SheetState {
     required TResult Function() loading,
     required TResult Function(List<SheetResponseModel> sheets) success,
     required TResult Function(String message) error,
+    required TResult Function() multipleDownloadSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -843,6 +1143,7 @@ mixin _$SheetState {
     TResult? Function()? loading,
     TResult? Function(List<SheetResponseModel> sheets)? success,
     TResult? Function(String message)? error,
+    TResult? Function()? multipleDownloadSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -851,6 +1152,7 @@ mixin _$SheetState {
     TResult Function()? loading,
     TResult Function(List<SheetResponseModel> sheets)? success,
     TResult Function(String message)? error,
+    TResult Function()? multipleDownloadSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -860,6 +1162,8 @@ mixin _$SheetState {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
+    required TResult Function(_MultipleDownloadSuccess value)
+        multipleDownloadSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -868,6 +1172,7 @@ mixin _$SheetState {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
+    TResult? Function(_MultipleDownloadSuccess value)? multipleDownloadSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -876,6 +1181,7 @@ mixin _$SheetState {
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
+    TResult Function(_MultipleDownloadSuccess value)? multipleDownloadSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -923,12 +1229,18 @@ class __$$InitialImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$InitialImpl implements _Initial {
+class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
   const _$InitialImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SheetState.initial()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'SheetState.initial'));
   }
 
   @override
@@ -947,6 +1259,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() loading,
     required TResult Function(List<SheetResponseModel> sheets) success,
     required TResult Function(String message) error,
+    required TResult Function() multipleDownloadSuccess,
   }) {
     return initial();
   }
@@ -958,6 +1271,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? loading,
     TResult? Function(List<SheetResponseModel> sheets)? success,
     TResult? Function(String message)? error,
+    TResult? Function()? multipleDownloadSuccess,
   }) {
     return initial?.call();
   }
@@ -969,6 +1283,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? loading,
     TResult Function(List<SheetResponseModel> sheets)? success,
     TResult Function(String message)? error,
+    TResult Function()? multipleDownloadSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -984,6 +1299,8 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
+    required TResult Function(_MultipleDownloadSuccess value)
+        multipleDownloadSuccess,
   }) {
     return initial(this);
   }
@@ -995,6 +1312,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
+    TResult? Function(_MultipleDownloadSuccess value)? multipleDownloadSuccess,
   }) {
     return initial?.call(this);
   }
@@ -1006,6 +1324,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
+    TResult Function(_MultipleDownloadSuccess value)? multipleDownloadSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1040,12 +1359,18 @@ class __$$LoadingImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoadingImpl implements _Loading {
+class _$LoadingImpl with DiagnosticableTreeMixin implements _Loading {
   const _$LoadingImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SheetState.loading()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'SheetState.loading'));
   }
 
   @override
@@ -1064,6 +1389,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function() loading,
     required TResult Function(List<SheetResponseModel> sheets) success,
     required TResult Function(String message) error,
+    required TResult Function() multipleDownloadSuccess,
   }) {
     return loading();
   }
@@ -1075,6 +1401,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function()? loading,
     TResult? Function(List<SheetResponseModel> sheets)? success,
     TResult? Function(String message)? error,
+    TResult? Function()? multipleDownloadSuccess,
   }) {
     return loading?.call();
   }
@@ -1086,6 +1413,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function()? loading,
     TResult Function(List<SheetResponseModel> sheets)? success,
     TResult Function(String message)? error,
+    TResult Function()? multipleDownloadSuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1101,6 +1429,8 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
+    required TResult Function(_MultipleDownloadSuccess value)
+        multipleDownloadSuccess,
   }) {
     return loading(this);
   }
@@ -1112,6 +1442,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
+    TResult? Function(_MultipleDownloadSuccess value)? multipleDownloadSuccess,
   }) {
     return loading?.call(this);
   }
@@ -1123,6 +1454,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
+    TResult Function(_MultipleDownloadSuccess value)? multipleDownloadSuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1171,7 +1503,7 @@ class __$$SuccessImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SuccessImpl implements _Success {
+class _$SuccessImpl with DiagnosticableTreeMixin implements _Success {
   const _$SuccessImpl(final List<SheetResponseModel> sheets) : _sheets = sheets;
 
   final List<SheetResponseModel> _sheets;
@@ -1183,8 +1515,16 @@ class _$SuccessImpl implements _Success {
   }
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SheetState.success(sheets: $sheets)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SheetState.success'))
+      ..add(DiagnosticsProperty('sheets', sheets));
   }
 
   @override
@@ -1214,6 +1554,7 @@ class _$SuccessImpl implements _Success {
     required TResult Function() loading,
     required TResult Function(List<SheetResponseModel> sheets) success,
     required TResult Function(String message) error,
+    required TResult Function() multipleDownloadSuccess,
   }) {
     return success(sheets);
   }
@@ -1225,6 +1566,7 @@ class _$SuccessImpl implements _Success {
     TResult? Function()? loading,
     TResult? Function(List<SheetResponseModel> sheets)? success,
     TResult? Function(String message)? error,
+    TResult? Function()? multipleDownloadSuccess,
   }) {
     return success?.call(sheets);
   }
@@ -1236,6 +1578,7 @@ class _$SuccessImpl implements _Success {
     TResult Function()? loading,
     TResult Function(List<SheetResponseModel> sheets)? success,
     TResult Function(String message)? error,
+    TResult Function()? multipleDownloadSuccess,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -1251,6 +1594,8 @@ class _$SuccessImpl implements _Success {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
+    required TResult Function(_MultipleDownloadSuccess value)
+        multipleDownloadSuccess,
   }) {
     return success(this);
   }
@@ -1262,6 +1607,7 @@ class _$SuccessImpl implements _Success {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
+    TResult? Function(_MultipleDownloadSuccess value)? multipleDownloadSuccess,
   }) {
     return success?.call(this);
   }
@@ -1273,6 +1619,7 @@ class _$SuccessImpl implements _Success {
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
+    TResult Function(_MultipleDownloadSuccess value)? multipleDownloadSuccess,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -1329,15 +1676,23 @@ class __$$ErrorImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ErrorImpl implements _Error {
+class _$ErrorImpl with DiagnosticableTreeMixin implements _Error {
   const _$ErrorImpl(this.message);
 
   @override
   final String message;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SheetState.error(message: $message)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SheetState.error'))
+      ..add(DiagnosticsProperty('message', message));
   }
 
   @override
@@ -1366,6 +1721,7 @@ class _$ErrorImpl implements _Error {
     required TResult Function() loading,
     required TResult Function(List<SheetResponseModel> sheets) success,
     required TResult Function(String message) error,
+    required TResult Function() multipleDownloadSuccess,
   }) {
     return error(message);
   }
@@ -1377,6 +1733,7 @@ class _$ErrorImpl implements _Error {
     TResult? Function()? loading,
     TResult? Function(List<SheetResponseModel> sheets)? success,
     TResult? Function(String message)? error,
+    TResult? Function()? multipleDownloadSuccess,
   }) {
     return error?.call(message);
   }
@@ -1388,6 +1745,7 @@ class _$ErrorImpl implements _Error {
     TResult Function()? loading,
     TResult Function(List<SheetResponseModel> sheets)? success,
     TResult Function(String message)? error,
+    TResult Function()? multipleDownloadSuccess,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1403,6 +1761,8 @@ class _$ErrorImpl implements _Error {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
+    required TResult Function(_MultipleDownloadSuccess value)
+        multipleDownloadSuccess,
   }) {
     return error(this);
   }
@@ -1414,6 +1774,7 @@ class _$ErrorImpl implements _Error {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
+    TResult? Function(_MultipleDownloadSuccess value)? multipleDownloadSuccess,
   }) {
     return error?.call(this);
   }
@@ -1425,6 +1786,7 @@ class _$ErrorImpl implements _Error {
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
+    TResult Function(_MultipleDownloadSuccess value)? multipleDownloadSuccess,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1444,4 +1806,140 @@ abstract class _Error implements SheetState {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$MultipleDownloadSuccessImplCopyWith<$Res> {
+  factory _$$MultipleDownloadSuccessImplCopyWith(
+          _$MultipleDownloadSuccessImpl value,
+          $Res Function(_$MultipleDownloadSuccessImpl) then) =
+      __$$MultipleDownloadSuccessImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$MultipleDownloadSuccessImplCopyWithImpl<$Res>
+    extends _$SheetStateCopyWithImpl<$Res, _$MultipleDownloadSuccessImpl>
+    implements _$$MultipleDownloadSuccessImplCopyWith<$Res> {
+  __$$MultipleDownloadSuccessImplCopyWithImpl(
+      _$MultipleDownloadSuccessImpl _value,
+      $Res Function(_$MultipleDownloadSuccessImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of SheetState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$MultipleDownloadSuccessImpl
+    with DiagnosticableTreeMixin
+    implements _MultipleDownloadSuccess {
+  const _$MultipleDownloadSuccessImpl();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'SheetState.multipleDownloadSuccess()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'SheetState.multipleDownloadSuccess'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MultipleDownloadSuccessImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<SheetResponseModel> sheets) success,
+    required TResult Function(String message) error,
+    required TResult Function() multipleDownloadSuccess,
+  }) {
+    return multipleDownloadSuccess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<SheetResponseModel> sheets)? success,
+    TResult? Function(String message)? error,
+    TResult? Function()? multipleDownloadSuccess,
+  }) {
+    return multipleDownloadSuccess?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<SheetResponseModel> sheets)? success,
+    TResult Function(String message)? error,
+    TResult Function()? multipleDownloadSuccess,
+    required TResult orElse(),
+  }) {
+    if (multipleDownloadSuccess != null) {
+      return multipleDownloadSuccess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Success value) success,
+    required TResult Function(_Error value) error,
+    required TResult Function(_MultipleDownloadSuccess value)
+        multipleDownloadSuccess,
+  }) {
+    return multipleDownloadSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_MultipleDownloadSuccess value)? multipleDownloadSuccess,
+  }) {
+    return multipleDownloadSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Success value)? success,
+    TResult Function(_Error value)? error,
+    TResult Function(_MultipleDownloadSuccess value)? multipleDownloadSuccess,
+    required TResult orElse(),
+  }) {
+    if (multipleDownloadSuccess != null) {
+      return multipleDownloadSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _MultipleDownloadSuccess implements SheetState {
+  const factory _MultipleDownloadSuccess() = _$MultipleDownloadSuccessImpl;
 }

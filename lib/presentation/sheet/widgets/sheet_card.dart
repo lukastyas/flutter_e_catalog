@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_e_catalog/core/components/custom_icon_download.dart';
-import 'package:flutter_e_catalog/core/components/custom_icon_share.dart';
 import 'package:flutter_e_catalog/core/constants/colors.dart';
 import 'package:flutter_e_catalog/data/models/responses/sheet_response_model.dart';
+
+import '../../../core/components/custom_icon_download.dart';
+import '../../../core/components/custom_icon_share.dart';
 
 class SheetCard extends StatelessWidget {
   final SheetResponseModel sheet;
@@ -66,30 +67,34 @@ class SheetCard extends StatelessWidget {
                 SizedBox(
                   height: 4.0,
                 ),
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.center,
-                //   children: [
-                //     //download Button
-                //     CustomIconDownload(
-                //       fileUrl: sheet.files[0].fileUrl,
-                //       fileName: sheet.files[0].fileName,
-                //     ),
-                //     SizedBox(
-                //       width: 16.0,
-                //     ),
-                //     const Text(
-                //       '|',
-                //       style: TextStyle(fontSize: 20, color: Colors.white),
-                //     ),
-                //     SizedBox(
-                //       width: 16.0,
-                //     ),
-                //     CustomIconShare(
-                //       fileUrl: sheet.files[0].fileUrl,
-                //       fileName: sheet.files[0].fileName,
-                //     ),
-                //   ],
-                // )
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    //download Button
+                    CustomIconDownload(
+                      fileUrls:
+                          sheet.files.map((file) => file.fileUrl).toList(),
+                      fileNames:
+                          sheet.files.map((file) => file.fileName).toList(),
+                      // fileUrl: sheet.files[0].fileUrl,
+                      // fileName: sheet.files[0].fileName,
+                    ),
+                    SizedBox(
+                      width: 16.0,
+                    ),
+                    const Text(
+                      '|',
+                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    ),
+                    SizedBox(
+                      width: 16.0,
+                    ),
+                    CustomIconShare(
+                      fileUrl: sheet.files[0].fileUrl,
+                      fileName: sheet.files[0].fileName,
+                    ),
+                  ],
+                )
               ],
             ),
           )

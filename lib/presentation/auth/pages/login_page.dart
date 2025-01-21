@@ -121,6 +121,21 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
           const SizedBox(height: 40.0),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 5.0),
+            child: const Text(
+              'Welcome!',
+              style: TextStyle(
+                fontSize: 40,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
+              textAlign: TextAlign.start,
+            ),
+          ),
+          SizedBox(
+            height: 20.0,
+          ),
           CustomTextField(
             controller: absenCodeController,
             label: 'Kode Absen',
@@ -132,14 +147,17 @@ class _LoginPageState extends State<LoginPage> {
             label: 'Tanggal Lahir (DDMMYYYY)',
             obscureText: false,
           ),
-          const SizedBox(height: 16.0),
-          GestureDetector(
-            onTap: _launchWhatsApp,
-            child: const Text(
-              'Lupa Kata Sandi?',
-              style: TextStyle(
-                fontWeight: FontWeight.w500,
-                color: AppColors.primary,
+          const SizedBox(height: 12.0),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: GestureDetector(
+              onTap: _launchWhatsApp,
+              child: const Text(
+                'Lupa Kata Sandi?',
+                style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  color: AppColors.primary,
+                ),
               ),
             ),
           ),
@@ -242,7 +260,7 @@ class _LoginPageState extends State<LoginPage> {
                         .read<LoginBloc>()
                         .add(LoginEvent.login(requestModel));
                   },
-                  label: 'MASUK',
+                  label: 'LOGIN',
                 ),
                 loading: () => const Center(
                   child: CircularProgressIndicator(),

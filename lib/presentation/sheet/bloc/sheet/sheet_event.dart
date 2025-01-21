@@ -8,4 +8,5 @@ class SheetEvent with _$SheetEvent {
   //search
   const factory SheetEvent.search(String sheetName) = _Search;
   const factory SheetEvent.download(String fileName, String url) = _Download;
+  const factory SheetEvent.downloadMultiple(List<String> fileNames, List<String> fileUrls) = _DownloadMultiple;
 }

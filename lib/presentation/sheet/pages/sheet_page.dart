@@ -30,11 +30,24 @@ class _SheetPageState extends State<SheetPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Sheet'),
-          centerTitle: true,
-          backgroundColor: AppColors.primary,
-          foregroundColor: Colors.white,
+        appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(60.0),
+          child: Container(
+            decoration: BoxDecoration(
+              color: AppColors.primary,
+              borderRadius: const BorderRadius.only(
+                bottomLeft: Radius.circular(20.0),
+                bottomRight: Radius.circular(20.0),
+              ),
+            ),
+            child: AppBar(
+              title: const Text('Sheet'),
+              centerTitle: true,
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              foregroundColor: Colors.white,
+            ),
+          ),
         ),
         body: Padding(
           padding: const EdgeInsets.all(16.0),

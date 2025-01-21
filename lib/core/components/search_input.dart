@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../constants/colors.dart';
 
-
-
 class SearchInput extends StatelessWidget {
   final TextEditingController controller;
   final Function(String value)? onChanged;
@@ -21,7 +19,7 @@ class SearchInput extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: AppColors.white,
-        borderRadius: BorderRadius.circular(8.0),
+        borderRadius: BorderRadius.circular(30.0),
       ),
       child: TextFormField(
         onTap: onTap,
@@ -29,19 +27,19 @@ class SearchInput extends StatelessWidget {
         controller: controller,
         onChanged: onChanged,
         decoration: InputDecoration(
-          hintText: 'Cari di sini',
+          hintText: 'Search',
           prefixIcon: const Icon(
             Icons.search,
             color: AppColors.primary,
           ),
           contentPadding: const EdgeInsets.all(16.0),
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8.0),
-            borderSide: const BorderSide(color: Colors.grey),
+            borderRadius: BorderRadius.circular(30.0),
+            borderSide: const BorderSide(color: AppColors.primary),
           ),
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8.0),
-            borderSide: const BorderSide(color: Colors.grey),
+            borderRadius: BorderRadius.circular(30.0),
+            borderSide: const BorderSide(color: AppColors.primary),
           ),
         ),
       ),
