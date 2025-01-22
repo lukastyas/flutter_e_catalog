@@ -22,24 +22,48 @@ class SheetCard extends StatelessWidget {
       ),
       child: Column(
         children: [
-          //file icon
+          // File Icon and Company Name
           Expanded(
             flex: 6,
-            child: Container(
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: Colors.blue[100],
-                borderRadius:
-                    const BorderRadius.vertical(top: Radius.circular(12.0)),
-              ),
-              padding: const EdgeInsets.all(12.0),
-              child: const Center(
-                child: Icon(
-                  Icons.insert_drive_file,
-                  size: 80,
-                  color: Colors.blue,
+            child: Stack(
+              children: [
+                Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: Colors.blue[100],
+                    borderRadius:
+                        const BorderRadius.vertical(top: Radius.circular(12.0)),
+                  ),
+                  padding: const EdgeInsets.all(12.0),
+                  child: const Center(
+                    child: Icon(
+                      Icons.insert_drive_file,
+                      size: 80,
+                      color: Colors.blue,
+                    ),
+                  ),
                 ),
-              ),
+                // Company Name positioned at the top left
+                Positioned(
+                  top:
+                      5.0, // Adjust this value to move the text higher or lower
+                  left: 5.0, // Adjust this value to move the text left or right
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 4.0), // Optional padding
+                    child: Text(
+                      sheet.companyName,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
+                      textAlign: TextAlign.left,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
           //sheet name and buttons
@@ -90,9 +114,15 @@ class SheetCard extends StatelessWidget {
                       width: 16.0,
                     ),
                     CustomIconShare(
-                      fileUrl: sheet.files[0].fileUrl,
-                      fileName: sheet.files[0].fileName,
+                      fileNames:
+                          sheet.files.map((file) => file.fileName).toList(),
+                      fileUrls:
+                          sheet.files.map((file) => file.fileUrl).toList(),
                     ),
+                    // CustomIconShare(
+                    //   fileUrl: sheet.files[0].fileUrl,
+                    //   fileName: sheet.files[0].fileName,
+                    // ),
                   ],
                 )
               ],

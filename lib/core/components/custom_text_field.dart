@@ -31,7 +31,7 @@ class CustomTextField extends StatelessWidget {
           controller: controller,
           onChanged: onChanged,
           obscureText: obscureText,
-          keyboardType: keyboardType,
+          keyboardType: TextInputType.number,
           decoration: InputDecoration(
             labelText: showLabel
                 ? label
