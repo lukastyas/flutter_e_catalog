@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:flutter_e_catalog/data/datasource/auth_local_datasource.dart';
 // import 'package:flutter_e_catalog/data/datasource/auth_local_datasource.dart';
@@ -31,8 +33,7 @@ class AuthRemoteDatasource {
   // }
 
   //Function Login
-  Future<Either<String, AuthResponseModel>> login(
-      LoginRequestModel data) async {
+  Future<Either<String, AuthResponseModel>> login(LoginRequestModel data) async {
     final response = await http.post(
       Uri.parse('${Variables.baseUrl}/api/v1/login'),
       headers: <String, String>{
@@ -40,6 +41,11 @@ class AuthRemoteDatasource {
       },
       body: data.toJson(),
     );
+
+    // print request
+    log('Login Request: ${data.toJson()}');
+
+    log('Login Res : ${response.body}');
 
     if (response.statusCode == 200) {
       return Right(AuthResponseModel.fromJson(response.body));

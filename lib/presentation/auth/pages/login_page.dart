@@ -101,7 +101,7 @@ class _LoginPageState extends State<LoginPage> {
           const SizedBox(height: 10.0),
           const Center(
             child: Text(
-              'E-Catalog',
+              'Media Kit',
               style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,

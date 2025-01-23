@@ -1,4 +1,4 @@
-import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:dartz/dartz.dart';
@@ -11,7 +11,7 @@ import 'package:path_provider/path_provider.dart';
 import '../../core/constants/variables.dart';
 
 class CompanyProfileRemoteDatasource {
-  Future<Either<String, List<CompanyResponseModel>>> getCompanyProfile() async {
+  Future<Either<String, CompanyResponseModel>> getCompanyProfile() async {
     try {
       final authData = await AuthLocalDatasource().getAuthData();
       final response = await http.get(
@@ -23,14 +23,10 @@ class CompanyProfileRemoteDatasource {
         },
       );
 
+      log('Get Company Response: ${response.body}');
+
       if (response.statusCode == 200) {
-        // Decode the response body
-        final List<dynamic> jsonResponse = json.decode(response.body);
-        // Map the JSON response to a list of CompanyResponseModel
-        final List<CompanyResponseModel> companies = jsonResponse
-            .map((json) => CompanyResponseModel.fromMap(json))
-            .toList();
-        return right(companies);
+        return Right(CompanyResponseModel.fromJson(response.body));
       } else {
         // Return a more descriptive error message
         return left('Error: ${response.statusCode} - ${response.body}');

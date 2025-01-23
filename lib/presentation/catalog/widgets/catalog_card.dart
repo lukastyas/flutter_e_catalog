@@ -6,7 +6,7 @@ import '../../../core/components/custom_icon_download.dart';
 import '../../../core/components/custom_icon_share.dart';
 
 class CatalogCard extends StatelessWidget {
-  final CatalogResponseModel catalog;
+  final Catalog catalog;
 
   const CatalogCard({
     super.key,
@@ -31,8 +31,7 @@ class CatalogCard extends StatelessWidget {
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: Colors.blue[100],
-                    borderRadius:
-                        const BorderRadius.vertical(top: Radius.circular(12.0)),
+                    borderRadius: const BorderRadius.vertical(top: Radius.circular(12.0)),
                   ),
                   padding: const EdgeInsets.all(12.0),
                   child: const Center(
@@ -45,14 +44,12 @@ class CatalogCard extends StatelessWidget {
                 ),
                 // Company Name positioned at the top left
                 Positioned(
-                  top:
-                      5.0, // Adjust this value to move the text higher or lower
+                  top: 5.0, // Adjust this value to move the text higher or lower
                   left: 5.0, // Adjust this value to move the text left or right
                   child: Container(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 4.0), // Optional padding
+                    padding: const EdgeInsets.symmetric(horizontal: 4.0), // Optional padding
                     child: Text(
-                      catalog.companyName,
+                      catalog.companyCode,
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
@@ -71,8 +68,7 @@ class CatalogCard extends StatelessWidget {
             width: double.infinity,
             decoration: const BoxDecoration(
               color: AppColors.primary,
-              borderRadius:
-                  BorderRadius.vertical(bottom: Radius.circular(12.0)),
+              borderRadius: BorderRadius.vertical(bottom: Radius.circular(12.0)),
             ),
             padding: const EdgeInsets.all(8.0),
             child: Column(
@@ -96,10 +92,8 @@ class CatalogCard extends StatelessWidget {
                   children: [
                     //download button
                     CustomIconDownload(
-                      fileUrls:
-                          catalog.files.map((file) => file.fileUrl).toList(),
-                      fileNames:
-                          catalog.files.map((file) => file.fileName).toList(),
+                      fileUrls: catalog.files.map((file) => file.fileUrl).toList(),
+                      fileNames: catalog.files.map((file) => file.fileName).toList(),
                       // CustomIconDownload(
                       //   fileUrl: catalog.files[0].fileUrl,
                       //   fileName: catalog.files[0].fileName,
@@ -115,10 +109,8 @@ class CatalogCard extends StatelessWidget {
                       width: 16.0,
                     ),
                     CustomIconShare(
-                      fileNames:
-                          catalog.files.map((file) => file.fileName).toList(),
-                      fileUrls:
-                          catalog.files.map((file) => file.fileUrl).toList(),
+                      fileNames: catalog.files.map((file) => file.fileName).toList(),
+                      fileUrls: catalog.files.map((file) => file.fileUrl).toList(),
                     ),
                     // CustomIconShare(
                     //   fileUrl: catalog.files[0].fileUrl,

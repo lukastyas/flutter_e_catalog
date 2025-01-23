@@ -1086,7 +1086,7 @@ mixin _$CompanyState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<CompanyResponseModel> companies) success,
+    required TResult Function(List<Company> companies) success,
     required TResult Function(String message) error,
     required TResult Function() multipleDownloadSuccess,
   }) =>
@@ -1095,7 +1095,7 @@ mixin _$CompanyState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<CompanyResponseModel> companies)? success,
+    TResult? Function(List<Company> companies)? success,
     TResult? Function(String message)? error,
     TResult? Function()? multipleDownloadSuccess,
   }) =>
@@ -1104,7 +1104,7 @@ mixin _$CompanyState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<CompanyResponseModel> companies)? success,
+    TResult Function(List<Company> companies)? success,
     TResult Function(String message)? error,
     TResult Function()? multipleDownloadSuccess,
     required TResult orElse(),
@@ -1205,7 +1205,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<CompanyResponseModel> companies) success,
+    required TResult Function(List<Company> companies) success,
     required TResult Function(String message) error,
     required TResult Function() multipleDownloadSuccess,
   }) {
@@ -1217,7 +1217,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<CompanyResponseModel> companies)? success,
+    TResult? Function(List<Company> companies)? success,
     TResult? Function(String message)? error,
     TResult? Function()? multipleDownloadSuccess,
   }) {
@@ -1229,7 +1229,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<CompanyResponseModel> companies)? success,
+    TResult Function(List<Company> companies)? success,
     TResult Function(String message)? error,
     TResult Function()? multipleDownloadSuccess,
     required TResult orElse(),
@@ -1329,7 +1329,7 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<CompanyResponseModel> companies) success,
+    required TResult Function(List<Company> companies) success,
     required TResult Function(String message) error,
     required TResult Function() multipleDownloadSuccess,
   }) {
@@ -1341,7 +1341,7 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<CompanyResponseModel> companies)? success,
+    TResult? Function(List<Company> companies)? success,
     TResult? Function(String message)? error,
     TResult? Function()? multipleDownloadSuccess,
   }) {
@@ -1353,7 +1353,7 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<CompanyResponseModel> companies)? success,
+    TResult Function(List<Company> companies)? success,
     TResult Function(String message)? error,
     TResult Function()? multipleDownloadSuccess,
     required TResult orElse(),
@@ -1416,7 +1416,7 @@ abstract class _$$SuccessImplCopyWith<$Res> {
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<CompanyResponseModel> companies});
+  $Res call({List<Company> companies});
 }
 
 /// @nodoc
@@ -1438,7 +1438,7 @@ class __$$SuccessImplCopyWithImpl<$Res>
       null == companies
           ? _value._companies
           : companies // ignore: cast_nullable_to_non_nullable
-              as List<CompanyResponseModel>,
+              as List<Company>,
     ));
   }
 }
@@ -1446,12 +1446,11 @@ class __$$SuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SuccessImpl implements _Success {
-  const _$SuccessImpl(final List<CompanyResponseModel> companies)
-      : _companies = companies;
+  const _$SuccessImpl(final List<Company> companies) : _companies = companies;
 
-  final List<CompanyResponseModel> _companies;
+  final List<Company> _companies;
   @override
-  List<CompanyResponseModel> get companies {
+  List<Company> get companies {
     if (_companies is EqualUnmodifiableListView) return _companies;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_companies);
@@ -1488,7 +1487,7 @@ class _$SuccessImpl implements _Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<CompanyResponseModel> companies) success,
+    required TResult Function(List<Company> companies) success,
     required TResult Function(String message) error,
     required TResult Function() multipleDownloadSuccess,
   }) {
@@ -1500,7 +1499,7 @@ class _$SuccessImpl implements _Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<CompanyResponseModel> companies)? success,
+    TResult? Function(List<Company> companies)? success,
     TResult? Function(String message)? error,
     TResult? Function()? multipleDownloadSuccess,
   }) {
@@ -1512,7 +1511,7 @@ class _$SuccessImpl implements _Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<CompanyResponseModel> companies)? success,
+    TResult Function(List<Company> companies)? success,
     TResult Function(String message)? error,
     TResult Function()? multipleDownloadSuccess,
     required TResult orElse(),
@@ -1566,10 +1565,9 @@ class _$SuccessImpl implements _Success {
 }
 
 abstract class _Success implements CompanyState {
-  const factory _Success(final List<CompanyResponseModel> companies) =
-      _$SuccessImpl;
+  const factory _Success(final List<Company> companies) = _$SuccessImpl;
 
-  List<CompanyResponseModel> get companies;
+  List<Company> get companies;
 
   /// Create a copy of CompanyState
   /// with the given fields replaced by the non-null parameter values.
@@ -1648,7 +1646,7 @@ class _$ErrorImpl implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<CompanyResponseModel> companies) success,
+    required TResult Function(List<Company> companies) success,
     required TResult Function(String message) error,
     required TResult Function() multipleDownloadSuccess,
   }) {
@@ -1660,7 +1658,7 @@ class _$ErrorImpl implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<CompanyResponseModel> companies)? success,
+    TResult? Function(List<Company> companies)? success,
     TResult? Function(String message)? error,
     TResult? Function()? multipleDownloadSuccess,
   }) {
@@ -1672,7 +1670,7 @@ class _$ErrorImpl implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<CompanyResponseModel> companies)? success,
+    TResult Function(List<Company> companies)? success,
     TResult Function(String message)? error,
     TResult Function()? multipleDownloadSuccess,
     required TResult orElse(),
@@ -1783,7 +1781,7 @@ class _$MultipleDownloadSuccessImpl implements _MultipleDownloadSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<CompanyResponseModel> companies) success,
+    required TResult Function(List<Company> companies) success,
     required TResult Function(String message) error,
     required TResult Function() multipleDownloadSuccess,
   }) {
@@ -1795,7 +1793,7 @@ class _$MultipleDownloadSuccessImpl implements _MultipleDownloadSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<CompanyResponseModel> companies)? success,
+    TResult? Function(List<Company> companies)? success,
     TResult? Function(String message)? error,
     TResult? Function()? multipleDownloadSuccess,
   }) {
@@ -1807,7 +1805,7 @@ class _$MultipleDownloadSuccessImpl implements _MultipleDownloadSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<CompanyResponseModel> companies)? success,
+    TResult Function(List<Company> companies)? success,
     TResult Function(String message)? error,
     TResult Function()? multipleDownloadSuccess,
     required TResult orElse(),

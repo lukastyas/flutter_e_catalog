@@ -1,4 +1,4 @@
-import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:dartz/dartz.dart';
@@ -10,7 +10,7 @@ import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
 
 class CatalogRemoteDatasource {
-  Future<Either<String, List<CatalogResponseModel>>> getCatalogs() async {
+  Future<Either<String, CatalogResponseModel>> getCatalogs() async {
     try {
       final authData = await AuthLocalDatasource().getAuthData();
       final response = await http.get(
@@ -21,17 +21,12 @@ class CatalogRemoteDatasource {
           'Authorization': 'Bearer ${authData.data.token}',
         },
       );
-      if (response.statusCode == 200) {
-        //decode response body
-        final List<dynamic> jsonResponse = json.decode(response.body);
-        //Map the json to list catalogresponsemodel
-        final List<CatalogResponseModel> catalogs = jsonResponse
-            .map((json) => CatalogResponseModel.fromMap(json))
-            .toList();
+      log('Get Catalog Response: ${response.body}');
 
-        return right(catalogs);
+      if (response.statusCode == 200) {
+        return Right(CatalogResponseModel.fromJson(response.body));
       } else {
-        //return a more descriptive error m
+        // Return a more descriptive error message
         return left('Error: ${response.statusCode} - ${response.body}');
       }
     } catch (e) {

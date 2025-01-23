@@ -10,19 +10,17 @@ part 'company_bloc.freezed.dart';
 
 class CompanyBloc extends Bloc<CompanyEvent, CompanyState> {
   final CompanyProfileRemoteDatasource _companyProfileRemoteDatasource;
-  List<CompanyResponseModel> allCompanies = []; // Store all companies data
+  List<Company> companies = []; // Store all companies data
 
   CompanyBloc(this._companyProfileRemoteDatasource) : super(const _Initial()) {
     on<_Fetch>((event, emit) async {
-      emit(const CompanyState.loading());
-      final response =
-          await _companyProfileRemoteDatasource.getCompanyProfile();
+      emit(_Loading());
+      final response = await _companyProfileRemoteDatasource.getCompanyProfile();
       response.fold(
-        (l) => emit(CompanyState.error(l)),
+        (l) => emit(_Error(l)),
         (r) {
-          allCompanies = r; // Store the fetched data
-          emit(CompanyState.success(
-              allCompanies)); // Emit all companies initially
+          companies = r.data;
+          emit(_Success(r.data));
         },
       );
     });
@@ -30,22 +28,19 @@ class CompanyBloc extends Bloc<CompanyEvent, CompanyState> {
     on<_Search>((event, emit) {
       if (event.companyName.isEmpty) {
         // If search is empty, show all companies
-        emit(CompanyState.success(allCompanies));
+        emit(_Success(companies));
       } else {
         // Filter companies based on the search query
-        final filteredCompanies = allCompanies.where((company) {
-          return company.companyName
-              .toLowerCase()
-              .contains(event.companyName.toLowerCase());
+        final filteredCompanies = companies.where((company) {
+          return company.companyName.toLowerCase().contains(event.companyName.toLowerCase());
         }).toList();
-        emit(CompanyState.success(filteredCompanies));
+        emit(_Success(filteredCompanies));
       }
     });
 
     on<_Download>((event, emit) async {
       emit(const CompanyState.loading());
-      final response = await _companyProfileRemoteDatasource.downloadFile(
-          event.fileName, event.url);
+      final response = await _companyProfileRemoteDatasource.downloadFile(event.fileName, event.url);
       response.fold((l) => emit(CompanyState.error(l)), (r) {
         emit(CompanyState.success(r));
       });
@@ -56,8 +51,7 @@ class CompanyBloc extends Bloc<CompanyEvent, CompanyState> {
     on<_DownloadMultiple>((event, emit) async {
       emit(const CompanyState.loading());
       for (int i = 0; i < event.fileNames.length; i++) {
-        final response = await _companyProfileRemoteDatasource.downloadFile(
-            event.fileNames[i], event.fileUrls[i]);
+        final response = await _companyProfileRemoteDatasource.downloadFile(event.fileNames[i], event.fileUrls[i]);
         response.fold((l) => emit(CompanyState.error(l)), (r) {
           // Optionally handle each successful download
         });

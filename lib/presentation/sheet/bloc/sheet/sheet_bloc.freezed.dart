@@ -1132,7 +1132,7 @@ mixin _$SheetState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<SheetResponseModel> sheets) success,
+    required TResult Function(List<Sheet> sheets) success,
     required TResult Function(String message) error,
     required TResult Function() multipleDownloadSuccess,
   }) =>
@@ -1141,7 +1141,7 @@ mixin _$SheetState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<SheetResponseModel> sheets)? success,
+    TResult? Function(List<Sheet> sheets)? success,
     TResult? Function(String message)? error,
     TResult? Function()? multipleDownloadSuccess,
   }) =>
@@ -1150,7 +1150,7 @@ mixin _$SheetState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<SheetResponseModel> sheets)? success,
+    TResult Function(List<Sheet> sheets)? success,
     TResult Function(String message)? error,
     TResult Function()? multipleDownloadSuccess,
     required TResult orElse(),
@@ -1257,7 +1257,7 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<SheetResponseModel> sheets) success,
+    required TResult Function(List<Sheet> sheets) success,
     required TResult Function(String message) error,
     required TResult Function() multipleDownloadSuccess,
   }) {
@@ -1269,7 +1269,7 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<SheetResponseModel> sheets)? success,
+    TResult? Function(List<Sheet> sheets)? success,
     TResult? Function(String message)? error,
     TResult? Function()? multipleDownloadSuccess,
   }) {
@@ -1281,7 +1281,7 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<SheetResponseModel> sheets)? success,
+    TResult Function(List<Sheet> sheets)? success,
     TResult Function(String message)? error,
     TResult Function()? multipleDownloadSuccess,
     required TResult orElse(),
@@ -1387,7 +1387,7 @@ class _$LoadingImpl with DiagnosticableTreeMixin implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<SheetResponseModel> sheets) success,
+    required TResult Function(List<Sheet> sheets) success,
     required TResult Function(String message) error,
     required TResult Function() multipleDownloadSuccess,
   }) {
@@ -1399,7 +1399,7 @@ class _$LoadingImpl with DiagnosticableTreeMixin implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<SheetResponseModel> sheets)? success,
+    TResult? Function(List<Sheet> sheets)? success,
     TResult? Function(String message)? error,
     TResult? Function()? multipleDownloadSuccess,
   }) {
@@ -1411,7 +1411,7 @@ class _$LoadingImpl with DiagnosticableTreeMixin implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<SheetResponseModel> sheets)? success,
+    TResult Function(List<Sheet> sheets)? success,
     TResult Function(String message)? error,
     TResult Function()? multipleDownloadSuccess,
     required TResult orElse(),
@@ -1474,7 +1474,7 @@ abstract class _$$SuccessImplCopyWith<$Res> {
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<SheetResponseModel> sheets});
+  $Res call({List<Sheet> sheets});
 }
 
 /// @nodoc
@@ -1496,7 +1496,7 @@ class __$$SuccessImplCopyWithImpl<$Res>
       null == sheets
           ? _value._sheets
           : sheets // ignore: cast_nullable_to_non_nullable
-              as List<SheetResponseModel>,
+              as List<Sheet>,
     ));
   }
 }
@@ -1504,11 +1504,11 @@ class __$$SuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SuccessImpl with DiagnosticableTreeMixin implements _Success {
-  const _$SuccessImpl(final List<SheetResponseModel> sheets) : _sheets = sheets;
+  const _$SuccessImpl(final List<Sheet> sheets) : _sheets = sheets;
 
-  final List<SheetResponseModel> _sheets;
+  final List<Sheet> _sheets;
   @override
-  List<SheetResponseModel> get sheets {
+  List<Sheet> get sheets {
     if (_sheets is EqualUnmodifiableListView) return _sheets;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_sheets);
@@ -1552,7 +1552,7 @@ class _$SuccessImpl with DiagnosticableTreeMixin implements _Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<SheetResponseModel> sheets) success,
+    required TResult Function(List<Sheet> sheets) success,
     required TResult Function(String message) error,
     required TResult Function() multipleDownloadSuccess,
   }) {
@@ -1564,7 +1564,7 @@ class _$SuccessImpl with DiagnosticableTreeMixin implements _Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<SheetResponseModel> sheets)? success,
+    TResult? Function(List<Sheet> sheets)? success,
     TResult? Function(String message)? error,
     TResult? Function()? multipleDownloadSuccess,
   }) {
@@ -1576,7 +1576,7 @@ class _$SuccessImpl with DiagnosticableTreeMixin implements _Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<SheetResponseModel> sheets)? success,
+    TResult Function(List<Sheet> sheets)? success,
     TResult Function(String message)? error,
     TResult Function()? multipleDownloadSuccess,
     required TResult orElse(),
@@ -1630,9 +1630,9 @@ class _$SuccessImpl with DiagnosticableTreeMixin implements _Success {
 }
 
 abstract class _Success implements SheetState {
-  const factory _Success(final List<SheetResponseModel> sheets) = _$SuccessImpl;
+  const factory _Success(final List<Sheet> sheets) = _$SuccessImpl;
 
-  List<SheetResponseModel> get sheets;
+  List<Sheet> get sheets;
 
   /// Create a copy of SheetState
   /// with the given fields replaced by the non-null parameter values.
@@ -1719,7 +1719,7 @@ class _$ErrorImpl with DiagnosticableTreeMixin implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<SheetResponseModel> sheets) success,
+    required TResult Function(List<Sheet> sheets) success,
     required TResult Function(String message) error,
     required TResult Function() multipleDownloadSuccess,
   }) {
@@ -1731,7 +1731,7 @@ class _$ErrorImpl with DiagnosticableTreeMixin implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<SheetResponseModel> sheets)? success,
+    TResult? Function(List<Sheet> sheets)? success,
     TResult? Function(String message)? error,
     TResult? Function()? multipleDownloadSuccess,
   }) {
@@ -1743,7 +1743,7 @@ class _$ErrorImpl with DiagnosticableTreeMixin implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<SheetResponseModel> sheets)? success,
+    TResult Function(List<Sheet> sheets)? success,
     TResult Function(String message)? error,
     TResult Function()? multipleDownloadSuccess,
     required TResult orElse(),
@@ -1863,7 +1863,7 @@ class _$MultipleDownloadSuccessImpl
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<SheetResponseModel> sheets) success,
+    required TResult Function(List<Sheet> sheets) success,
     required TResult Function(String message) error,
     required TResult Function() multipleDownloadSuccess,
   }) {
@@ -1875,7 +1875,7 @@ class _$MultipleDownloadSuccessImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<SheetResponseModel> sheets)? success,
+    TResult? Function(List<Sheet> sheets)? success,
     TResult? Function(String message)? error,
     TResult? Function()? multipleDownloadSuccess,
   }) {
@@ -1887,7 +1887,7 @@ class _$MultipleDownloadSuccessImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<SheetResponseModel> sheets)? success,
+    TResult Function(List<Sheet> sheets)? success,
     TResult Function(String message)? error,
     TResult Function()? multipleDownloadSuccess,
     required TResult orElse(),

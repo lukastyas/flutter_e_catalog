@@ -1085,7 +1085,7 @@ mixin _$CatalogState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<CatalogResponseModel> catalogs) success,
+    required TResult Function(List<Catalog> catalogs) success,
     required TResult Function(String message) error,
     required TResult Function() multipleDownloadSuccess,
   }) =>
@@ -1094,7 +1094,7 @@ mixin _$CatalogState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<CatalogResponseModel> catalogs)? success,
+    TResult? Function(List<Catalog> catalogs)? success,
     TResult? Function(String message)? error,
     TResult? Function()? multipleDownloadSuccess,
   }) =>
@@ -1103,7 +1103,7 @@ mixin _$CatalogState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<CatalogResponseModel> catalogs)? success,
+    TResult Function(List<Catalog> catalogs)? success,
     TResult Function(String message)? error,
     TResult Function()? multipleDownloadSuccess,
     required TResult orElse(),
@@ -1204,7 +1204,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<CatalogResponseModel> catalogs) success,
+    required TResult Function(List<Catalog> catalogs) success,
     required TResult Function(String message) error,
     required TResult Function() multipleDownloadSuccess,
   }) {
@@ -1216,7 +1216,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<CatalogResponseModel> catalogs)? success,
+    TResult? Function(List<Catalog> catalogs)? success,
     TResult? Function(String message)? error,
     TResult? Function()? multipleDownloadSuccess,
   }) {
@@ -1228,7 +1228,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<CatalogResponseModel> catalogs)? success,
+    TResult Function(List<Catalog> catalogs)? success,
     TResult Function(String message)? error,
     TResult Function()? multipleDownloadSuccess,
     required TResult orElse(),
@@ -1328,7 +1328,7 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<CatalogResponseModel> catalogs) success,
+    required TResult Function(List<Catalog> catalogs) success,
     required TResult Function(String message) error,
     required TResult Function() multipleDownloadSuccess,
   }) {
@@ -1340,7 +1340,7 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<CatalogResponseModel> catalogs)? success,
+    TResult? Function(List<Catalog> catalogs)? success,
     TResult? Function(String message)? error,
     TResult? Function()? multipleDownloadSuccess,
   }) {
@@ -1352,7 +1352,7 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<CatalogResponseModel> catalogs)? success,
+    TResult Function(List<Catalog> catalogs)? success,
     TResult Function(String message)? error,
     TResult Function()? multipleDownloadSuccess,
     required TResult orElse(),
@@ -1415,7 +1415,7 @@ abstract class _$$SuccessImplCopyWith<$Res> {
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<CatalogResponseModel> catalogs});
+  $Res call({List<Catalog> catalogs});
 }
 
 /// @nodoc
@@ -1437,7 +1437,7 @@ class __$$SuccessImplCopyWithImpl<$Res>
       null == catalogs
           ? _value._catalogs
           : catalogs // ignore: cast_nullable_to_non_nullable
-              as List<CatalogResponseModel>,
+              as List<Catalog>,
     ));
   }
 }
@@ -1445,12 +1445,11 @@ class __$$SuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SuccessImpl implements _Success {
-  const _$SuccessImpl(final List<CatalogResponseModel> catalogs)
-      : _catalogs = catalogs;
+  const _$SuccessImpl(final List<Catalog> catalogs) : _catalogs = catalogs;
 
-  final List<CatalogResponseModel> _catalogs;
+  final List<Catalog> _catalogs;
   @override
-  List<CatalogResponseModel> get catalogs {
+  List<Catalog> get catalogs {
     if (_catalogs is EqualUnmodifiableListView) return _catalogs;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_catalogs);
@@ -1486,7 +1485,7 @@ class _$SuccessImpl implements _Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<CatalogResponseModel> catalogs) success,
+    required TResult Function(List<Catalog> catalogs) success,
     required TResult Function(String message) error,
     required TResult Function() multipleDownloadSuccess,
   }) {
@@ -1498,7 +1497,7 @@ class _$SuccessImpl implements _Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<CatalogResponseModel> catalogs)? success,
+    TResult? Function(List<Catalog> catalogs)? success,
     TResult? Function(String message)? error,
     TResult? Function()? multipleDownloadSuccess,
   }) {
@@ -1510,7 +1509,7 @@ class _$SuccessImpl implements _Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<CatalogResponseModel> catalogs)? success,
+    TResult Function(List<Catalog> catalogs)? success,
     TResult Function(String message)? error,
     TResult Function()? multipleDownloadSuccess,
     required TResult orElse(),
@@ -1564,10 +1563,9 @@ class _$SuccessImpl implements _Success {
 }
 
 abstract class _Success implements CatalogState {
-  const factory _Success(final List<CatalogResponseModel> catalogs) =
-      _$SuccessImpl;
+  const factory _Success(final List<Catalog> catalogs) = _$SuccessImpl;
 
-  List<CatalogResponseModel> get catalogs;
+  List<Catalog> get catalogs;
 
   /// Create a copy of CatalogState
   /// with the given fields replaced by the non-null parameter values.
@@ -1646,7 +1644,7 @@ class _$ErrorImpl implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<CatalogResponseModel> catalogs) success,
+    required TResult Function(List<Catalog> catalogs) success,
     required TResult Function(String message) error,
     required TResult Function() multipleDownloadSuccess,
   }) {
@@ -1658,7 +1656,7 @@ class _$ErrorImpl implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<CatalogResponseModel> catalogs)? success,
+    TResult? Function(List<Catalog> catalogs)? success,
     TResult? Function(String message)? error,
     TResult? Function()? multipleDownloadSuccess,
   }) {
@@ -1670,7 +1668,7 @@ class _$ErrorImpl implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<CatalogResponseModel> catalogs)? success,
+    TResult Function(List<Catalog> catalogs)? success,
     TResult Function(String message)? error,
     TResult Function()? multipleDownloadSuccess,
     required TResult orElse(),
@@ -1781,7 +1779,7 @@ class _$MultipleDownloadSuccessImpl implements _MultipleDownloadSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<CatalogResponseModel> catalogs) success,
+    required TResult Function(List<Catalog> catalogs) success,
     required TResult Function(String message) error,
     required TResult Function() multipleDownloadSuccess,
   }) {
@@ -1793,7 +1791,7 @@ class _$MultipleDownloadSuccessImpl implements _MultipleDownloadSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<CatalogResponseModel> catalogs)? success,
+    TResult? Function(List<Catalog> catalogs)? success,
     TResult? Function(String message)? error,
     TResult? Function()? multipleDownloadSuccess,
   }) {
@@ -1805,7 +1803,7 @@ class _$MultipleDownloadSuccessImpl implements _MultipleDownloadSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<CatalogResponseModel> catalogs)? success,
+    TResult Function(List<Catalog> catalogs)? success,
     TResult Function(String message)? error,
     TResult Function()? multipleDownloadSuccess,
     required TResult orElse(),

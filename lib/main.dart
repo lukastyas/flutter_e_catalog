@@ -30,6 +30,9 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
+          create: (context) => LoginBloc(AuthRemoteDatasource()),
+        ),
+        BlocProvider(
           create: (context) => LogoutBloc(AuthRemoteDatasource()),
         ),
         BlocProvider(
@@ -40,9 +43,6 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => SheetBloc(SheetRemoteDatasource()),
-        ),
-        BlocProvider(
-          create: (context) => LoginBloc(),
         ),
       ],
       child: MaterialApp(
@@ -63,9 +63,7 @@ class MyApp extends StatelessWidget {
                     future: OnboardingLocalDatasource().getIsFirstTime(),
                     builder: (context, snapshot) {
                       if (snapshot.hasData) {
-                        return snapshot.hasData
-                            ? const LoginPage()
-                            : const OnboardingPage();
+                        return snapshot.hasData ? const LoginPage() : const OnboardingPage();
                       } else {
                         return const OnboardingPage();
                       }

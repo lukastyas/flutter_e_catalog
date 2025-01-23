@@ -44,6 +44,8 @@ class _HeaderHomeState extends State<HeaderHome> {
                           snapshot.data!.data.karyawan.photoProfile;
                       String fullName =
                           snapshot.data!.data.karyawan.namaLengkap;
+                      String jabatanName =
+                          snapshot.data!.data.karyawan.jabatanName;
 
                       // Cek apakah photoProfile valid
                       if (photoProfile == '-') {
@@ -116,14 +118,28 @@ class _HeaderHomeState extends State<HeaderHome> {
                       future: AuthLocalDatasource().getAuthData(),
                       builder: (context, snapshot) {
                         if (snapshot.hasData) {
-                          return Text(
-                            snapshot.data!.data.karyawan.namaLengkap,
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w500,
-                            ),
-                            overflow: TextOverflow.ellipsis,
+                          return Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                snapshot.data!.data.karyawan.namaLengkap,
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                              Text(
+                                snapshot.data!.data.karyawan.jabatanName,
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ],
                           );
                         } else {
                           return const SizedBox();
@@ -159,7 +175,7 @@ class _HeaderHomeState extends State<HeaderHome> {
                       height: 40.0,
                       padding: const EdgeInsets.all(10.0),
                       decoration: BoxDecoration(
-                        color: AppColors.white.withOpacity(0.3),
+                        color: AppColors.white.withValues(alpha: 0.3),
                         borderRadius:
                             const BorderRadius.all(Radius.circular(50.0)),
                       ),

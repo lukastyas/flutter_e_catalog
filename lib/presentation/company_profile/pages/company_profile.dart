@@ -50,8 +50,7 @@ class _CompanyProfilePageState extends State<CompanyProfilePage> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(
-            16.0), // Menambahkan padding di sekitar seluruh body
+        padding: const EdgeInsets.all(16.0), // Menambahkan padding di sekitar seluruh body
         child: Column(
           children: [
             SearchInput(
@@ -60,8 +59,7 @@ class _CompanyProfilePageState extends State<CompanyProfilePage> {
                 context.read<CompanyBloc>().add(CompanyEvent.search(value));
               },
             ),
-            const SizedBox(
-                height: 16.0), // Jarak antara input pencarian dan grid
+            const SizedBox(height: 16.0), // Jarak antara input pencarian dan grid
             Expanded(
               child: BlocBuilder<CompanyBloc, CompanyState>(
                 builder: (context, state) {
@@ -72,21 +70,20 @@ class _CompanyProfilePageState extends State<CompanyProfilePage> {
                     loading: () => const Center(
                       child: CircularProgressIndicator(),
                     ),
-                    success: (profiles) {
-                      if (profiles.isEmpty) {
+                    success: (company) {
+                      if (company.isEmpty) {
                         return const Center(
                           child: Text('No Company Profiel Found.'),
                         );
                       }
                       return GridView.builder(
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
+                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2, // Jumlah kolom
                           childAspectRatio: 0.75, // Rasio aspek item
                         ),
-                        itemCount: profiles.length,
+                        itemCount: company.length,
                         itemBuilder: (context, index) {
-                          return CompanyProfileWidget(profile: profiles[index]);
+                          return CompanyProfileWidget(company: company[index]);
                         },
                       );
                     },

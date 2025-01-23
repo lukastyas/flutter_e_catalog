@@ -5,11 +5,11 @@ import 'package:flutter_e_catalog/core/constants/colors.dart';
 import '../../../data/models/responses/company_response_model.dart';
 
 class CompanyProfileWidget extends StatelessWidget {
-  final CompanyResponseModel profile;
+  final Company company;
 
   const CompanyProfileWidget({
     super.key,
-    required this.profile,
+    required this.company,
   });
 
   @override
@@ -30,8 +30,7 @@ class CompanyProfileWidget extends StatelessWidget {
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: Colors.blue[100],
-                    borderRadius:
-                        const BorderRadius.vertical(top: Radius.circular(12.0)),
+                    borderRadius: const BorderRadius.vertical(top: Radius.circular(12.0)),
                   ),
                   padding: const EdgeInsets.all(12.0),
                   child: const Center(
@@ -44,14 +43,12 @@ class CompanyProfileWidget extends StatelessWidget {
                 ),
                 // Company Name positioned at the top left
                 Positioned(
-                  top:
-                      5.0, // Adjust this value to move the text higher or lower
+                  top: 5.0, // Adjust this value to move the text higher or lower
                   left: 5.0, // Adjust this value to move the text left or right
                   child: Container(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 4.0), // Optional padding
+                    padding: const EdgeInsets.symmetric(horizontal: 4.0), // Optional padding
                     child: Text(
-                      profile.companyName,
+                      company.companyCode,
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
@@ -70,17 +67,16 @@ class CompanyProfileWidget extends StatelessWidget {
             width: double.infinity,
             decoration: const BoxDecoration(
               color: AppColors.primary,
-              borderRadius:
-                  BorderRadius.vertical(bottom: Radius.circular(12.0)),
+              borderRadius: BorderRadius.vertical(bottom: Radius.circular(12.0)),
             ),
             padding: const EdgeInsets.all(8.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 //menampilkan nameFile
-                if (profile.files.isNotEmpty)
+                if (company.files.isNotEmpty)
                   Text(
-                    profile.files[0].fileName,
+                    company.files[0].fileName,
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -95,10 +91,8 @@ class CompanyProfileWidget extends StatelessWidget {
                   children: [
                     // Download Button
                     CustomIconDownload(
-                      fileUrls:
-                          profile.files.map((file) => file.fileUrl).toList(),
-                      fileNames:
-                          profile.files.map((file) => file.fileName).toList(),
+                      fileUrls: company.files.map((file) => file.fileUrl).toList(),
+                      fileNames: company.files.map((file) => file.fileName).toList(),
                       // fileUrl: profile.files[0].fileUrl,
                       // fileName: profile.files[0].fileName,
                     ),
@@ -109,10 +103,8 @@ class CompanyProfileWidget extends StatelessWidget {
                     ),
                     const SizedBox(width: 16.0),
                     CustomIconShare(
-                      fileNames:
-                          profile.files.map((file) => file.fileName).toList(),
-                      fileUrls:
-                          profile.files.map((file) => file.fileUrl).toList(),
+                      fileUrls: company.files.map((file) => file.fileUrl).toList(),
+                      fileNames: company.files.map((file) => file.fileName).toList(),
                     ),
 
                     // CustomIconShare(

@@ -10,7 +10,7 @@ part 'catalog_bloc.freezed.dart';
 
 class CatalogBloc extends Bloc<CatalogEvent, CatalogState> {
   final CatalogRemoteDatasource _catalogRemoteDatasource;
-  List<CatalogResponseModel> allCatalogs = [];
+  List<Catalog> catalogs = [];
 
   CatalogBloc(this._catalogRemoteDatasource) : super(const _Initial()) {
     on<_Fetch>((event, emit) async {
@@ -19,8 +19,8 @@ class CatalogBloc extends Bloc<CatalogEvent, CatalogState> {
       response.fold(
         (l) => emit(CatalogState.error(l)),
         (r) {
-          allCatalogs = r;
-          emit(CatalogState.success(allCatalogs));
+          catalogs = r.data;
+          emit(_Success(r.data));
         },
       );
     });
@@ -28,16 +28,11 @@ class CatalogBloc extends Bloc<CatalogEvent, CatalogState> {
     on<_Search>((event, emit) {
       if (event.catalogName.isEmpty) {
         // If search is empty, show all companies
-        emit(CatalogState.success(allCatalogs));
+        emit(_Success(catalogs));
       } else {
         // Filter companies based on the search query
-        final filteredCompanies = allCatalogs.where((catalog) {
-          return catalog.nameFile
-                  .toLowerCase()
-                  .contains(event.catalogName.toLowerCase()) ||
-              catalog.companyName
-                  .toLowerCase()
-                  .contains(event.catalogName.toLowerCase());
+        final filteredCompanies = catalogs.where((catalog) {
+          return catalog.nameFile.toLowerCase().contains(event.catalogName.toLowerCase()) || catalog.companyName.toLowerCase().contains(event.catalogName.toLowerCase());
         }).toList();
         emit(CatalogState.success(filteredCompanies));
       }
@@ -45,8 +40,7 @@ class CatalogBloc extends Bloc<CatalogEvent, CatalogState> {
 
     on<_Download>((event, emit) async {
       emit(const CatalogState.loading());
-      final response = await _catalogRemoteDatasource.downloadFile(
-          event.fileName, event.url);
+      final response = await _catalogRemoteDatasource.downloadFile(event.fileName, event.url);
       response.fold((l) => emit(CatalogState.error(l)), (r) {
         emit(CatalogState.success(r));
       });
@@ -57,8 +51,7 @@ class CatalogBloc extends Bloc<CatalogEvent, CatalogState> {
     on<_DownloadMultiple>((event, emit) async {
       emit(const CatalogState.loading());
       for (int i = 0; i < event.fileNames.length; i++) {
-        final response = await _catalogRemoteDatasource.downloadFile(
-            event.fileNames[i], event.fileUrls[i]);
+        final response = await _catalogRemoteDatasource.downloadFile(event.fileNames[i], event.fileUrls[i]);
         response.fold((l) => emit(CatalogState.error(l)), (r) {
           // Optionally handle each successful download
         });

@@ -11,7 +11,7 @@ part 'sheet_bloc.freezed.dart';
 
 class SheetBloc extends Bloc<SheetEvent, SheetState> {
   final SheetRemoteDatasource _sheetRemoteDatasource;
-  List<SheetResponseModel> allSheets = [];
+  List<Sheet> sheets = [];
 
   SheetBloc(this._sheetRemoteDatasource) : super(const _Initial()) {
     on<_Fetch>((event, emit) async {
@@ -20,8 +20,8 @@ class SheetBloc extends Bloc<SheetEvent, SheetState> {
       response.fold(
         (l) => emit(SheetState.error(l)),
         (r) {
-          allSheets = r;
-          emit(SheetState.success(allSheets));
+          sheets = r.data;
+          emit(_Success(r.data));
         },
       );
     });
@@ -29,16 +29,11 @@ class SheetBloc extends Bloc<SheetEvent, SheetState> {
     on<_Search>((event, emit) {
       if (event.sheetName.isEmpty) {
         //if search is empty, show all sheets
-        emit(SheetState.success(allSheets));
+        emit(SheetState.success(sheets));
       } else {
         //filter sheets base on the search query
-        final filteredSheets = allSheets.where((sheet) {
-          return sheet.nameFile
-                  .toLowerCase()
-                  .contains(event.sheetName.toLowerCase()) ||
-              sheet.companyName
-                  .toLowerCase()
-                  .contains(event.sheetName.toLowerCase());
+        final filteredSheets = sheets.where((sheet) {
+          return sheet.nameFile.toLowerCase().contains(event.sheetName.toLowerCase()) || sheet.companyName.toLowerCase().contains(event.sheetName.toLowerCase());
         }).toList();
         emit(SheetState.success(filteredSheets));
       }
@@ -46,8 +41,7 @@ class SheetBloc extends Bloc<SheetEvent, SheetState> {
 
     on<_Download>((event, emit) async {
       emit(const SheetState.loading());
-      final response =
-          await _sheetRemoteDatasource.downloadFile(event.fileName, event.url);
+      final response = await _sheetRemoteDatasource.downloadFile(event.fileName, event.url);
       response.fold((l) => emit(SheetState.error(l)), (r) {
         emit(SheetState.success(r));
       });
@@ -56,8 +50,7 @@ class SheetBloc extends Bloc<SheetEvent, SheetState> {
     on<_DownloadMultiple>((event, emit) async {
       emit(const SheetState.loading());
       for (int i = 0; i < event.fileNames.length; i++) {
-        final response = await _sheetRemoteDatasource.downloadFile(
-            event.fileNames[i], event.fileUrls[i]);
+        final response = await _sheetRemoteDatasource.downloadFile(event.fileNames[i], event.fileUrls[i]);
         response.fold((l) => emit(SheetState.error(l)), (r) {
           // Optionally handle each successful download
         });

@@ -1,4 +1,4 @@
-import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
@@ -9,7 +9,7 @@ import 'package:path_provider/path_provider.dart';
 import '../../core/constants/variables.dart';
 
 class SheetRemoteDatasource {
-  Future<Either<String, List<SheetResponseModel>>> getSheets() async {
+  Future<Either<String, SheetResponseModel>> getSheets() async {
     try {
       final authData = await AuthLocalDatasource().getAuthData();
       final response = await http.get(
@@ -21,16 +21,10 @@ class SheetRemoteDatasource {
         },
       );
 
-      if (response.statusCode == 200) {
-        // Decode response body
-        final List<dynamic> jsonResponse = json.decode(response.body);
-        // Map the json to list of SheetResponseModel
-        final List<SheetResponseModel> sheets = jsonResponse
-            .map((json) => SheetResponseModel.fromMap(
-                json)) // Pastikan menggunakan fromMap
-            .toList();
+      log('Get Sheet Response: ${response.body}');
 
-        return right(sheets);
+      if (response.statusCode == 200) {
+        return Right(SheetResponseModel.fromJson(response.body));
       } else {
         // Return a more descriptive error message
         return left('Error: ${response.statusCode} - ${response.body}');

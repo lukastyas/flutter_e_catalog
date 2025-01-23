@@ -6,7 +6,7 @@ import '../../../core/components/custom_icon_download.dart';
 import '../../../core/components/custom_icon_share.dart';
 
 class SheetCard extends StatelessWidget {
-  final SheetResponseModel sheet;
+  final Sheet sheet;
 
   const SheetCard({
     super.key,
@@ -31,8 +31,7 @@ class SheetCard extends StatelessWidget {
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: Colors.blue[100],
-                    borderRadius:
-                        const BorderRadius.vertical(top: Radius.circular(12.0)),
+                    borderRadius: const BorderRadius.vertical(top: Radius.circular(12.0)),
                   ),
                   padding: const EdgeInsets.all(12.0),
                   child: const Center(
@@ -45,14 +44,12 @@ class SheetCard extends StatelessWidget {
                 ),
                 // Company Name positioned at the top left
                 Positioned(
-                  top:
-                      5.0, // Adjust this value to move the text higher or lower
+                  top: 5.0, // Adjust this value to move the text higher or lower
                   left: 5.0, // Adjust this value to move the text left or right
                   child: Container(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 4.0), // Optional padding
+                    padding: const EdgeInsets.symmetric(horizontal: 4.0), // Optional padding
                     child: Text(
-                      sheet.companyName,
+                      sheet.companyCode,
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
@@ -71,8 +68,7 @@ class SheetCard extends StatelessWidget {
             width: double.infinity,
             decoration: const BoxDecoration(
               color: AppColors.primary,
-              borderRadius:
-                  BorderRadius.vertical(bottom: Radius.circular(12.0)),
+              borderRadius: BorderRadius.vertical(bottom: Radius.circular(12.0)),
             ),
             padding: const EdgeInsets.all(8.0),
             child: Column(
@@ -96,10 +92,8 @@ class SheetCard extends StatelessWidget {
                   children: [
                     //download Button
                     CustomIconDownload(
-                      fileUrls:
-                          sheet.files.map((file) => file.fileUrl).toList(),
-                      fileNames:
-                          sheet.files.map((file) => file.fileName).toList(),
+                      fileUrls: sheet.files.map((file) => file.fileUrl).toList(),
+                      fileNames: sheet.files.map((file) => file.fileName).toList(),
                       // fileUrl: sheet.files[0].fileUrl,
                       // fileName: sheet.files[0].fileName,
                     ),
@@ -114,10 +108,8 @@ class SheetCard extends StatelessWidget {
                       width: 16.0,
                     ),
                     CustomIconShare(
-                      fileNames:
-                          sheet.files.map((file) => file.fileName).toList(),
-                      fileUrls:
-                          sheet.files.map((file) => file.fileUrl).toList(),
+                      fileNames: sheet.files.map((file) => file.fileName).toList(),
+                      fileUrls: sheet.files.map((file) => file.fileUrl).toList(),
                     ),
                     // CustomIconShare(
                     //   fileUrl: sheet.files[0].fileUrl,

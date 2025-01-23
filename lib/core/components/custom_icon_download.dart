@@ -29,6 +29,29 @@ class _CustomIconDownloadState extends State<CustomIconDownload> {
     _selectedFiles = List.filled(widget.fileNames.length, false);
   }
 
+  void _downloadSelectedFiles() {
+    bool anySelected = _selectedFiles
+        .any((selected) => selected); // Check if any file is selected
+
+    if (!anySelected) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+            content: Text("Tidak ada file yang dipilih untuk diunduh.")),
+      );
+      return; // Exit if no files are selected
+    }
+
+    for (int i = 0; i < _selectedFiles.length; i++) {
+      if (_selectedFiles[i]) {
+        String fileUrl =
+            widget.fileUrls[i]; // Pastikan ini adalah file_url dari respons API
+        String fileName = widget
+            .fileNames[i]; // Pastikan ini adalah file_name dari respons API
+        _downloadFile(widget.fileUrls[i], widget.fileNames[i]);
+      }
+    }
+  }
+
   Future<void> _downloadFile(String fileUrl, String fileName) async {
     setState(() {
       _isDownloading = true;
@@ -49,7 +72,11 @@ class _CustomIconDownloadState extends State<CustomIconDownload> {
       }
 
       final dio = Dio();
-      final filePath = "${dir.path}/$fileName";
+      // Pastikan nama file diakhiri dengan .pdf
+      String pdfFileName =
+          fileName.endsWith('.pdf') ? fileName : '$fileName.pdf';
+      final filePath = "${dir.path}/$pdfFileName";
+      // final filePath = "${dir.path}/$fileName";
 
       // Download the file using Dio
       await dio.download(
@@ -133,25 +160,6 @@ class _CustomIconDownloadState extends State<CustomIconDownload> {
         );
       },
     );
-  }
-
-  void _downloadSelectedFiles() {
-    bool anySelected = _selectedFiles
-        .any((selected) => selected); // Check if any file is selected
-
-    if (!anySelected) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-            content: Text("Tidak ada file yang dipilih untuk diunduh.")),
-      );
-      return; // Exit if no files are selected
-    }
-
-    for (int i = 0; i < _selectedFiles.length; i++) {
-      if (_selectedFiles[i]) {
-        _downloadFile(widget.fileUrls[i], widget.fileNames[i]);
-      }
-    }
   }
 
   @override
